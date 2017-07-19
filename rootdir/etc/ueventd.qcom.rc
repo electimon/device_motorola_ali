@@ -233,7 +233,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/tsc_ci0              0660   media       media
 
 # sensors
-/dev/sensors              0660   system     system
+/dev/sensors              0660   root     system
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
 /sys/devices/f9925000.i2c/i2c-0/0-*                 enable         0660    input    system
 /sys/devices/f9925000.i2c/i2c-0/0-*                 poll_delay     0660    input    system
@@ -422,6 +422,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/mobicore             0600   system     system
 /dev/mobicore-user        0666   system     system
 
+<<<<<<< HEAD
 # IIO (dynamic sensors)
 /sys/devices/iio_sysfs_trigger/add_trigger          0220    system      system
 /sys/devices/iio_sysfs_trigger/remove_trigger       0220    system      system
@@ -441,3 +442,8 @@ firmware_directories /vendor/firmware_mnt/image/
 # NPU device
 /dev/msm_npu             0644   system     system
 
+=======
+# /dev/sensors only supports an ioctl to get the current SLPI timestamp
+# allow the sensors daemon to perform this as non-root
+/dev/sensors              0660   root       system
+>>>>>>> 26e847bf... hannah: rootdir: Run sensors daemon as system user instead of root
