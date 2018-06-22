@@ -119,7 +119,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
     ro.hwui.texture_cache_flushrate=0.4 \
     ro.opengles.version=196609 \
-    debug.sf.recomputecrop=0
+    debug.sf.recomputecrop=0 \
+    sys.use_fifo_ui=1
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
