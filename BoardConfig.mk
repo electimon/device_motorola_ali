@@ -60,6 +60,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $
 # Encryption
 TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
 TARGET_HW_DISK_ENCRYPTION := true
+TARGET_USES_METADATA_AS_FDE_KEY := true
 PLATFORM_SECURITY_PATCH := 2029-10-01
 
 # Keymaster
