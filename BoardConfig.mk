@@ -88,6 +88,7 @@ BOARD_USES_QCOM_HARDWARE := true
 # TWRP Configuration
 TW_EXTRA_LANGUAGES := true
 TW_THEME := portrait_hdpi
+TW_HAS_EDL_MODE := true
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_FUSE_EXFAT := true
 TW_INCLUDE_FUSE_NTFS := true
