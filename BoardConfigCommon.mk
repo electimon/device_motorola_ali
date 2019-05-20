@@ -22,36 +22,29 @@
 # definition file).
 #
 
-PLATFORM_PATH := device/motorola/sdm660-common
+PLATFORM_PATH := device/motorola/sdm450-common
 
 TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 
 BOARD_VENDOR := motorola
 
 # Platform
-TARGET_ARCH := arm64
+TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := kryo
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_VARIANT := cortex-a53
 TARGET_CPU_SMP := true
-
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-a
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a53
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
 BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOOTLOADER_BOARD_NAME := SDM660
-TARGET_BOARD_PLATFORM := sdm660
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno508
+TARGET_BOOTLOADER_BOARD_NAME := msm8953
+TARGET_BOARD_PLATFORM := msm8953
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno506
 TARGET_HAS_NO_SELECT_BUTTON := true
 
-ENABLE_CPUSETS := true
-ENABLE_SCHEDBOOST := true
-TARGET_USES_64_BIT_BINDER := true
+#ENABLE_CPUSETS := true
+#ENABLE_SCHEDBOOST := true
+#TARGET_USES_64_BIT_BINDER := true
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -137,7 +130,7 @@ TARGET_HAS_HDR_DISPLAY := true
 TARGET_HAS_WIDE_COLOR_DISPLAY := true
 
 # DRM
-TARGET_ENABLE_MEDIADRM_64 := true
+#TARGET_ENABLE_MEDIADRM_64 := true
 
 # Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
@@ -171,17 +164,22 @@ TARGET_FS_CONFIG_GEN += \
 USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3
+* cmdline = console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 firmware_class.pa
+th=/vendor/firmware_mnt/image loop.max_part=7 vmalloc=400M buildvariant=user
+
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 ehci-hcd.park=3
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 service_locator.enable=1
-BOARD_KERNEL_CMDLINE += swiotlb=2048 androidboot.configfs=true
+BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237 androidboot.configfs=true
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3 firmware_class.path=/vendor/firmware_mnt/image
 #BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-BOARD_KERNEL_BASE := 0x00000000
+#BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_BASE := 0x80008000
+BOARD_KERNEL_LZ4C_DT := true
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_ARCH := arm64
+BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+TARGET_KERNEL_ARCH := arm
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true

@@ -1,5 +1,5 @@
 #
-# vendor props for sdm660
+# vendor props for sdm450
 #
 
 # Audio
