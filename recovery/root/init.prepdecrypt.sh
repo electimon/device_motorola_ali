@@ -2,7 +2,7 @@
 relink()
 {
 	/sbin/cp $1 ${1}_old
-	sed 's|system/bin/linker|//////sbin/linker|' "${1}_old" > "$1"
+	sed 's|/system/bin/linker64|///////sbin/linker64|' "${1}_old" > "$1"
 	chmod 755 $1
 }
 
