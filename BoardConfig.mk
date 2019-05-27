@@ -47,8 +47,14 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_ARCH := arm64
+ifneq ($(WITH_KERNEL_SOURCE),true)
+TARGET_PREBUILT_DTB := $(LOCAL_PATH)/prebuilt/dt.img
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
+BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
+else
 TARGET_KERNEL_CONFIG := hannah_defconfig
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8937
+endif
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 
 # Encryption
