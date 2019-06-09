@@ -97,3 +97,7 @@ TW_INCLUDE_FUSE_EXFAT := true
 TW_INCLUDE_FUSE_NTFS := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/twrp.fstab
+
+# log
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
