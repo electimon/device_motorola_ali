@@ -58,7 +58,7 @@ vendor/lib/libStDrvInt.so
 
 # Fingerprint
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-fpcservice
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
+vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc|d166b4199505e65607b5c2f882b1450d7f899565
 vendor/etc/permissions/android.hardware.fingerprint.xml
 vendor/framework/com.fingerprints.extension.jar
 vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
