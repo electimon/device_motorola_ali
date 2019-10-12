@@ -1,4 +1,4 @@
-/system          ext4              /dev/block/bootdevice/by-name/system
+/system_root     ext4              /dev/block/bootdevice/by-name/system     flags=display="System"
 /system_image    emmc              /dev/block/bootdevice/by-name/system
 /vendor          ext4              /dev/block/bootdevice/by-name/vendor     flags=wipeingui;display="Vendor"
 /vendor_image    emmc              /dev/block/bootdevice/by-name/vendor
