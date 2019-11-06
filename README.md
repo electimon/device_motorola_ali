@@ -1,0 +1,1 @@
+# device_motorola_sdm450-common
