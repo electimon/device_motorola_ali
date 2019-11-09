@@ -26,7 +26,7 @@ $(call inherit-product, device/motorola/ali/device.mk)
 
 # Device identifiers
 PRODUCT_DEVICE := ali
-PRODUCT_NAME := lineage_ali
+PRODUCT_NAME := omni_ali
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := Moto g(6)
 PRODUCT_MANUFACTURER := Motorola
