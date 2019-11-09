@@ -42,7 +42,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.use.sw.ape.decoder=true \
     vendor.fm.a2dp.conc.disabled=true \
     vendor.voice.path.for.pcm.voip=true \
-    vendor.audio.offload.min.duration.secs=60
+    vendor.audio.offload.min.duration.secs=60 \
+    persist.vendor.audio.calfile0=/vendor/etc/acdbdata/Bluetooth_cal.acdb \
+    persist.vendor.audio.calfile1=/vendor/etc/acdbdata/General_cal.acdb \
+    persist.vendor.audio.calfile2=/vendor/etc/acdbdata/Global_cal.acdb \
+    persist.vendor.audio.calfile3=/vendor/etc/acdbdata/Handset_cal.acdb \
+    persist.vendor.audio.calfile4=/vendor/etc/acdbdata/Hdmi_cal.acdb \
+    persist.vendor.audio.calfile5=/vendor/etc/acdbdata/Headset_cal.acdb \
+    persist.vendor.audio.calfile6=/vendor/etc/acdbdata/Speaker_cal.acdb
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -75,7 +82,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.gralloc.enable_fb_ubwc=1 \
     dev.pm.dyn_samplingrate=1 \
     ro.opengles.version=196610 \
-    ro.qualcomm.cabl=0
+    ro.qualcomm.cabl=0 \
+    ro.sf.lcd_density=420
 
 # Factory reset partition
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -179,6 +187,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.iwlan.enable=true \
     persist.rmnet.data.enable=true \
     persist.rmnet.mux=enabled
+
+# Sensors
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.sensors=ali \
+    ro.vendor.sensors.maghalcal=false \
+    ro.vendor.sensors.amd=false \
+    ro.vendor.sensors.pmd=false \
+    ro.vendor.sensors.rmd=false \
+    ro.vendor.sensors.facing=false \
+    ro.vendor.sensors.scrn_ortn=false \
+    ro.vendor.sensors.pedometer=false \
+    ro.vendor.sensors.dev_ori=true \
+    ro.vendor.sensors.sta_detect=true \
+    ro.vendor.sensors.mot_detect=true \
+    ro.vendor.sensors.cmc=false \
+    ro.vendor.sdk.sensors.gestures=false
 
 # Time daemon
 PRODUCT_PROPERTY_OVERRIDES += \

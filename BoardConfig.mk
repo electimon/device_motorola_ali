@@ -22,7 +22,8 @@
 # definition file).
 #
 
-PLATFORM_PATH := device/motorola/sdm450-common
+PLATFORM_PATH := device/motorola/ali
+DEVICE_PATH := device/motorola/ali
 
 TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 
@@ -44,7 +45,10 @@ TARGET_HAS_NO_SELECT_BUTTON := true
 
 #ENABLE_CPUSETS := true
 #ENABLE_SCHEDBOOST := true
-#TARGET_USES_64_BIT_BINDER := true
+#TARGET_USES_64_BIT_BINDER := true TODO 64bit baby
+
+# Assertions
+TARGET_OTA_ASSERT_DEVICE := ali
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -99,12 +103,15 @@ AUDIO_FEATURE_ENABLED_PERF_HINTS := true
 AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 
 # Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
 
 # Boot Animtion
 TARGET_BOOTANIMATION_HALF_RES := true
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
 
 # Camera
 USE_CAMERA_STUB := true
@@ -164,21 +171,22 @@ TARGET_FS_CONFIG_GEN += \
 USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
 
 # Kernel
-* cmdline = console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 firmware_class.pa
-th=/vendor/firmware_mnt/image loop.max_part=7 vmalloc=400M buildvariant=user
-
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.bootdevice=7824900.sdhci androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 ehci-hcd.park=3
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 service_locator.enable=1
 BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237 androidboot.configfs=true
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3 firmware_class.path=/vendor/firmware_mnt/image
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-#BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_BASE := 0x80008000
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_BASE := 0x80000000
+TARGET_KERNEL_CONFIG := ali_stock_defconfig
+TARGET_KERNEL_SOURCE := kernel/motorola/ali
+TARGET_KERNEL_CLANG_COMPILE := true # TODO make sure this works
+#BOARD_KERNEL_BASE := 0x80008000 TODO verify this isnt right
 BOARD_KERNEL_LZ4C_DT := true
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
-BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+BOARD_KERNEL_SEPARATED_DT := true
+BOARD_KERNEL_IMAGE_NAME := zImage-dt
 TARGET_KERNEL_ARCH := arm
 
 # Lights
@@ -187,17 +195,26 @@ TARGET_PROVIDES_LIBLIGHT := true
 # Lineage hardware
 JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(PLATFORM_PATH)/lineagehw|**/*.java
 
+# NFC
+BOARD_NFC_CHIPSET := pn553
+
 # Partitions
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false # TODO check this 
 BOARD_FLASH_BLOCK_SIZE := 0x40000
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x102000000
+BOARD_VENDORIMAGE_PARTITION_SIZE := 603979776
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_USES_RECOVERY_AS_BOOT := true
+BOARD_USES_RECOVERY_AS_BOOT := false
 TARGET_EXFAT_DRIVER := exfat
-TARGET_NO_RECOVERY := true
+TARGET_NO_RECOVERY := false
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-TARGET_USES_MKE2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
+
+# Power
+TARGET_HAS_NO_WLAN_STATS := true
 
 # RIL
 TARGET_RIL_VARIANT := caf
@@ -220,12 +237,6 @@ BOARD_USES_QC_TIME_SERVICES := true
 
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-BOARD_VNDK_VERSION := current
-PRODUCT_FULL_TREBLE_OVERRIDE := true
-
-# Verified Boot
-BOARD_AVB_ENABLE := false
-BOARD_BUILD_DISABLED_VBMETAIMAGE := true
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
@@ -239,4 +250,7 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_AP  := "ap"
 WIFI_DRIVER_FW_PATH_P2P := "p2p"
-PRODUCT_VENDOR_MOVE_ENABLED := true
+WIFI_DRIVER_OPERSTATE_PATH := "/sys/class/net/wlan0/operstate"
+
+-include vendor/motorola/ali/BoardConfigVendor.mk
+

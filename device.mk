@@ -22,13 +22,21 @@
 # definition file).
 #
 
-$(call inherit-product, vendor/motorola/sdm450-common/sdm450-common-vendor.mk)
+$(call inherit-product, vendor/motorola/ali/ali-vendor.mk)
 
 # Properties
 -include $(LOCAL_PATH)/vendor_prop.mk
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
+PRODUCT_ENFORCE_RRO_TARGETS := \
+    framework-res
+
+# AAPT
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := 420dpi
+PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -57,15 +65,22 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/audio/audio_ext_spkr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_ext_spkr.conf \
+    $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0 \
     libbt-vendor
 
-# Boot control HAL
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
+# Boot control HAL TODO check this plz
+#PRODUCT_PACKAGES += \
+#    android.hardware.boot@1.0-impl \
+#    android.hardware.boot@1.0-service
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -115,6 +130,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1
 
+# Fingerprint Gestures
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
+    $(LOCAL_PATH)/idc/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc
+
 # FM
 ifeq ($(filter beckham, $(TARGET_DEVICE)),true)
     PRODUCT_PACKAGES += \
@@ -125,6 +145,11 @@ ifeq ($(filter beckham, $(TARGET_DEVICE)),true)
 
     PRODUCT_BOOT_JARS += qcom.fmradio
 endif
+
+# Gatekeeper HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -165,6 +190,7 @@ PRODUCT_PACKAGES += \
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    init.ali.rc \
     init.mmi.ramdump.rc \
     init.mmi.usb.rc \
     init.mmi.usb.sh \
@@ -201,6 +227,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
+# Keymaster HAL
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service
+
 # LED packages
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.sdm450
@@ -208,10 +239,6 @@ PRODUCT_PACKAGES += \
 # LineageActions
 PRODUCT_PACKAGES += \
     LineageActions
-
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -225,6 +252,25 @@ PRODUCT_COPY_FILES += \
 # Network
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
+
+# NFC
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.1-service \
+    com.android.nfc_extras \
+    SecureElement \
+    NfcNci \
+    nqnfcee_access.xml \
+    nqnfcse_access.xml \
+    Tag
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml \
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -304,7 +350,8 @@ PRODUCT_PACKAGES += \
 # Recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
-    $(LOCAL_PATH)/recovery/root/init.recovery.qcom.usb.rc:root/init.recovery.qcom.usb.rc
+    $(LOCAL_PATH)/recovery/root/init.recovery.qcom.usb.rc:root/init.recovery.qcom.usb.rc \
+    $(LOCAL_PATH)/recovery/root/init.recovery.ali.rc:root/init.recovery.ali.rc
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -319,6 +366,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf \
+    $(LOCAL_PATH)/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
 # Shims
 PRODUCT_PACKAGES += \
