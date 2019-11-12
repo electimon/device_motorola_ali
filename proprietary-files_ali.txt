@@ -50,9 +50,9 @@ etc/thermal-engine-ali1.conf:vendor/etc/thermal-engine-ali1.conf
 etc/thermal-engine-ali2.conf:vendor/etc/thermal-engine-ali2.conf
 
 # Display
-vendor/etc/qdcm_calib_data_mipi_mot_vid_auo_1080p_565.xml
-vendor/etc/qdcm_calib_data_mipi_mot_vid_boe_1080p_565.xml
-vendor/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_565.xml
+vendor/etc/qdcm_calib_data_mipi_mot_vid_auo_1080p_565.xml|365a7ee539bd974a76316e3384ff81f255983395
+vendor/etc/qdcm_calib_data_mipi_mot_vid_boe_1080p_565.xml|648e1c7b03af7c60cf9a07dd0f3824780a10ba62
+vendor/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_565.xml|983ffa7b8b61970a7ad2c716d592290327d289af
 
 # Camera
 vendor/lib/hw/camera.msm8953.so
