@@ -130,7 +130,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mm.enable.smoothstreaming=false \
     mmp.enable.3g2=true \
     vidc.enc.dcvs.extra-buff-count=2 \
-    vendor.vidc.enc.disable.pq=true
+    vendor.vidc.enc.disable.pq=true \
+    media.stagefright.thumbnail.prefer_hw_codecs=true
 
 # Netmgr
 PRODUCT_PROPERTY_OVERRIDES += \
