@@ -134,8 +134,8 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    copybit.msm8937 \
-    gralloc.msm8937 \
+    copybit.msm8953 \
+    gralloc.msm8953 \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-impl \
@@ -215,7 +215,8 @@ PRODUCT_PACKAGES += \
     libgnss \
     libgnsspps \
     libsynergy_loc_api \
-    libwifi-hal-ctrl
+    libwifi-hal-ctrl \
+    libjson
 
 PRODUCT_PACKAGES += \
     apdr.conf \
