@@ -14,9 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
--include vendor/motorola/cedric/BoardConfigVendor.mk
+-include vendor/motorola/ali/BoardConfigVendor.mk
 
-DEVICE_PATH := device/motorola/cedric
+DEVICE_PATH := device/motorola/ali
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
@@ -30,11 +30,11 @@ TARGET_FS_CONFIG_GEN += \
     $(DEVICE_PATH)/mot_aids.fs
 
 # Platform
-TARGET_BOARD_PLATFORM := msm8937
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno505
+TARGET_BOARD_PLATFORM := msm8953
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno506
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := MSM8937
+TARGET_BOOTLOADER_BOARD_NAME := SDM450
 TARGET_NO_BOOTLOADER := true
 
 BUILD_BROKEN_DUP_RULES := true
@@ -57,11 +57,9 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
 TARGET_USES_64_BIT_BINDER := true
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := cedric,cedric_retail
+TARGET_OTA_ASSERT_DEVICE := ali,ali_retail
 
-# Enable dexpreopt to speed boot time
-WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
-WITH_DEXPREOPT := true
+WITH_DEXPREOPT := false
 
 # GPS
 TARGET_NO_RPC := true
@@ -69,22 +67,28 @@ USE_DEVICE_SPECIFIC_GPS := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0
-BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom user_debug=30
-BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237 ehci-hcd.park=3
-BOARD_KERNEL_CMDLINE += androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
-BOARD_KERNEL_CMDLINE += vmalloc=350M
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_IMAGE_NAME := Image.gz
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_CMDLINE := \
+     console=ttyHSL0,115200,n8 \
+     androidboot.console=ttyHSL0 \
+     androidboot.hardware=qcom \
+     user_debug=30 \
+     msm_rtb.filter=0x237 \
+     ehci-hcd.park=3 \
+     androidboot.bootdevice=7824900.sdhci \
+     lpm_levels.sleep_disabled=1 \
+     vmalloc=400M \
+     androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
-BOARD_KERNEL_SEPARATED_DT := true
 BOARD_DTBTOOL_ARGS := --force-v3
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_CONFIG := cedric_defconfig
-TARGET_KERNEL_SOURCE := kernel/motorola/msm8937
+TARGET_KERNEL_CONFIG := ali_defconfig
+TARGET_KERNEL_SOURCE := kernel/motorola/sdm450
+TARGET_KERNEL_VERSION := 3.18
 KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
 
 # Audio
@@ -135,11 +139,6 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 
-# Charger
-BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
-BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_NO_CHARGER_LED := true
-
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 
@@ -161,8 +160,8 @@ TARGET_EXFAT_DRIVER := exfat
 BOARD_HAVE_QCOM_FM := true
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_cedric
-TARGET_RECOVERY_DEVICE_MODULES := //$(DEVICE_PATH):libinit_cedric
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_ali
+TARGET_RECOVERY_DEVICE_MODULES := //$(DEVICE_PATH):libinit_ali
 
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
@@ -176,12 +175,11 @@ DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/configs/compatibility_matrix.xml
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216        #    16384 * 1024 mmcblk0p37
-BOARD_CACHEIMAGE_PARTITION_SIZE := 260014080      #   253920 * 1024 mmcblk0p52
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432    #    16484 * 1024 mmcblk0p38
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3455451136    #  3428080 * 1024 mmcblk0p53
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 26401026048 # 25782252 * 1024 mmcblk0p54
+BOARD_BOOTIMAGE_PARTITION_SIZE := 23068672              #    22528 * 1024 mmcblk0p36
+BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456            #   262144 * 1024 mmcblk0p51
+BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432           #    32768 * 1024 mmcblk0p29
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 23171072          #    22628 * 1024 mmcblk0p37
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3271557120          #  3194880 * 1024 mmcblk0p52
 
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /mnt/vendor/persist:/persist \
@@ -190,6 +188,15 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/firmware/image:firmware/image
 
 BOARD_ROOT_EXTRA_FOLDERS := dsp firmware fsg persist
+
+ENABLE_VENDOR_IMAGE := true
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDORIMAGE_PARTITION_SIZE := 671088640     #   655360 * 1024 mmcblk0p50
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
+TARGET_COPY_OUT_VENDOR := vendor
+PRODUCT_VENDOR_MOVE_ENABLED := true
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
@@ -211,6 +218,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.recovery
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 LZMA_RAMDISK_TARGETS := recovery
+BOARD_USES_FULL_RECOVERY_IMAGE := true
 
 # RIL
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
@@ -218,22 +226,8 @@ TARGET_USES_OLD_MNC_FORMAT := true
 TARGET_USES_ALTERNATIVE_MANUAL_NETWORK_SELECT := true
 
 # SELinux
-include device/qcom/sepolicy-legacy-um/sepolicy.mk
+#include device/qcom/sepolicy-legacy-um/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
-
-# Sensor
-BOARD_USES_MOT_SENSOR_HUB := true
-BOARD_USES_CAP_SENSOR_SX9310 := true
-MOT_SENSOR_HUB_HW_TYPE_L0 := true
-MOT_AP_SENSOR_HW_REARPROX := true
-MOT_AP_SENSOR_HW_REARPROX_2 := true
-MOT_SENSOR_HUB_HW_AK09912 := true
-MOT_SENSOR_HUB_HW_BMI160 := true
-MOT_SENSOR_HUB_FEATURE_CHOPCHOP := true
-MOT_SENSOR_HUB_FEATURE_LIFT := true
-MOT_SENSOR_HUB_FEATURE_PEDO := true
-MOT_SENSOR_HUB_FEATURE_LA := true
-MOT_SENSOR_HUB_FEATURE_GR := true
 
 TARGET_ENABLE_MEDIADRM_64 := true
 
@@ -247,6 +241,11 @@ TARGET_LD_SHIM_LIBS := \
 # Security patch level
 VENDOR_SECURITY_PATCH := 2018-10-01
 
+# System as root
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_KERNEL_CMDLINE += skip_initramfs rootwait ro init=/init root=/dev/dm-0
+BOARD_KERNEL_CMDLINE += dm=\"system none ro,0 1 android-verity /dev/mmcblk0p52\"
+
 # VNDK
 PRODUCT_USE_VNDK_OVERRIDE := false
 
@@ -254,7 +253,7 @@ PRODUCT_USE_VNDK_OVERRIDE := false
 TARGET_USES_MKE2FS := true
 
 # Wlan
-PRODUCT_VENDOR_MOVE_ENABLED      := true
+PRODUCT_VENDOR_MOVE_ENABLED := true
 
 # SurfaceFlinger
 TARGET_USE_QCOM_SURFACEFLINGER := true

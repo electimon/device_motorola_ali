@@ -22,7 +22,7 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage
 
 # Soong namespaces
-PRODUCT_SOONG_NAMESPACES += device/motorola/cedric
+PRODUCT_SOONG_NAMESPACES += device/motorola/ali
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -68,7 +68,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
     android.hardware.audio.effect@5.0-impl \
     android.hardware.broadcastradio@1.0-impl \
-    audio.primary.msm8937 \
+    audio.primary.msm8953 \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
@@ -121,22 +121,21 @@ PRODUCT_PACKAGES += \
 
 # Camera Configurations
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/camera/msm8937_mot_camera.xml:system/etc/camera/msm8937_mot_camera.xml \
-    $(LOCAL_PATH)/configs/camera/mot_ov5695_chromatix.xml:system/etc/camera/mot_ov5695_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_imx258_chromatix.xml:system/etc/camera/mot_imx258_chromatix.xml
+    $(LOCAL_PATH)/configs/camera/sdm450_mot_ali_camera.xml:system/etc/camera/sdm450_mot_ali_camera.xml \
+    $(LOCAL_PATH)/configs/camera/s5k4h7_chromatix.xml:system/etc/camera/s5k4h7_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/mot_s5k3p8sp_chromatix.xml:system/etc/camera/mot_s5k3p8sp_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/mot_ov5675_chromatix.xml:system/etc/camera/mot_ov5675_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/mot_ov12a10_chromatix.xml:system/etc/camera/mot_ov12a10_chromatix.xml
+
 
 # CarrierConfig
 PRODUCT_PACKAGES += \
     CarrierConfig
 
-# LineageActions
-PRODUCT_PACKAGES += \
-    LineageActions
-
 # Display
 PRODUCT_PACKAGES += \
-    copybit.msm8937 \
-    gralloc.msm8937 \
+    copybit.msm8953 \
+    gralloc.msm8953 \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-impl \
@@ -145,8 +144,8 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
     android.hardware.configstore@1.0-service \
-    hwcomposer.msm8937 \
-    memtrack.msm8937 \
+    hwcomposer.msm8953 \
+    memtrack.msm8953 \
     libgenlock \
     libtinyxml \
     libdisplayconfig \
@@ -207,14 +206,26 @@ PRODUCT_PACKAGES += \
     libqcomfm_jni \
     qcom.fmradio
 
-# GPS Configurations
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
-    $(LOCAL_PATH)/configs/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
-    $(LOCAL_PATH)/configs/gps/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
-    $(LOCAL_PATH)/configs/gps/lowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
-    $(LOCAL_PATH)/configs/gps/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
-    $(LOCAL_PATH)/configs/gps/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
+# GPS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@2.0-impl-qti \
+    android.hardware.gnss@2.0-service-qti \
+    libbatching \
+    libgeofencing \
+    libgnss \
+    libgnsspps \
+    libsynergy_loc_api \
+    libwifi-hal-ctrl \
+    libjson
+
+PRODUCT_PACKAGES += \
+    apdr.conf \
+    flp.conf \
+    gps.conf \
+    izat.conf \
+    lowi.conf \
+    sap.conf \
+    xtwifi.con
 
 # GPS / Location
 PRODUCT_PACKAGES += \
@@ -224,10 +235,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
-
-# health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service.cedric
 
 # IPACM
 PRODUCT_PACKAGES += \
@@ -256,19 +263,14 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
 
-# Lights
+# Light
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl \
-    android.hardware.light@2.0-service.cedric
+    android.hardware.light@2.0-service.ali
 
-# Display Calibration
+# Livedisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service-sdm \
     vendor.lineage.livedisplay@2.0-service-sysfs
-
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_inx_1080p_497.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_vid_inx_1080p_497.xml \
-#    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_tianma_1080p_497.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_497.xml
 
 # Media (OMX)
 PRODUCT_PACKAGES += \
@@ -320,7 +322,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 
 # Properties
--include $(LOCAL_PATH)/device_props.mk
+-include $(LOCAL_PATH)/properties.mk
 
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect
@@ -333,9 +335,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.mmi.boot.sh \
-    init.mmi.laser.sh \
     init.mmi.rc \
-    init.cedric.rc \
     init.mmi.usb.rc \
     init.qcom.rc \
     init.qcom.ril.sh \
@@ -382,26 +382,11 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
-    android.hardware.sensors@1.0-service \
-    libsensorhub \
-    motosh \
-    sensorhub.msm8937 \
-    sensors.msm8937 \
-    sensors.rp \
-    sensors.tof \
-    sensors.tof.vl53l0
-
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
+    android.hardware.sensors@1.0-service
 
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
-
-# Touch HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.cedric
 
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \
@@ -414,11 +399,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v28/arm64/arch-arm64-armv8-a/shared/vndk-sp/libbase.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libbase-v28.so
 
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
-    android.hardware.vibrator@1.0-service.cedric
-
 PRODUCT_PACKAGES += \
     vndk-sp
 
@@ -426,7 +406,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
     android.hardware.thermal@1.0-service \
-    thermal.msm8937
+    thermal.msm8953
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -444,18 +424,16 @@ PRODUCT_PACKAGES += \
 
 # Wifi Configurations
 PRODUCT_COPY_FILES += \
-    kernel/motorola/msm8937/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_wlan_nv.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 
 # Wi-Fi Display
 PRODUCT_PACKAGES += \
     libaacwrapper \
     libnl
-
-PRODUCT_BOOT_JARS += \
-    WfdCommon
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
