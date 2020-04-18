@@ -1,3 +1,0 @@
-allow cnd system_wpa_socket:sock_file { unlink };
-
-allow cnd sysfs:file { read open };
