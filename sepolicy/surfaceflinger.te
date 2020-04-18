@@ -1,8 +1,0 @@
-get_prop(surfaceflinger, diag_prop);
-allow surfaceflinger perfd_data_file:sock_file write;
-allow surfaceflinger perfd_data_file:dir search;
-allow surfaceflinger perfd:unix_stream_socket connectto;
-
-binder_call(surfaceflinger, hwservicemanager)
-
-allow surfaceflinger sysfs_kgsl:file r_file_perms;
