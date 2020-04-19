@@ -466,51 +466,52 @@ vendor/lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
-# Gatekeeper
-vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
-vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
-vendor/lib/hw/gatekeeper.msm8953.so
+# Gatekeeper - from daisy_sprout - PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti|eeb4ba9eacb57c958051a47d307968254ee081d0
+vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc|1b8d5f58fe0a57906acf72b862c16a2521daa97b
+vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so|23ea2258775e3ba5150afdc2f567d47db3ad5010
+vendor/lib64/hw/gatekeeper.msm8953.so|c1b386547234815a0d6116b5e4756de66075cd3f
 
-# GPS
-vendor/bin/garden_app
-vendor/bin/loc_launcher
-vendor/bin/lowi-server
-vendor/bin/xtra-daemon
-vendor/bin/xtwifi-client
-vendor/bin/xtwifi-inet-agent
-vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml
-vendor/lib/hw/vendor.qti.gnss@3.0-impl.so
-vendor/lib/vendor.qti.gnss@1.0.so
-vendor/lib/vendor.qti.gnss@1.1.so
-vendor/lib/vendor.qti.gnss@1.2.so
-vendor/lib/vendor.qti.gnss@2.0.so
-vendor/lib/vendor.qti.gnss@2.1.so
-vendor/lib/vendor.qti.gnss@3.0-service.so
-vendor/lib/vendor.qti.gnss@3.0.so
-vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so
--vendor/lib64/libloc_api_v02.so
-vendor/lib64/libdataitems.so
-vendor/lib64/libgarden.so
-vendor/lib64/libgarden_haltests_e2e.so
-vendor/lib64/libgdtap.so
-vendor/lib64/libizat_client_api.so
-vendor/lib64/libizat_core.so
-vendor/lib64/liblbs_core.so
-vendor/lib64/liblocationservice_glue.so
-vendor/lib64/liblocationservice.so
-vendor/lib64/liblowi_client.so
-vendor/lib64/liblowi_wifihal.so
-vendor/lib64/libqdma_file_agent.so
-vendor/lib64/libslimclient.so
-vendor/lib64/libxtadapter.so
-vendor/lib64/vendor.qti.gnss@1.0.so
-vendor/lib64/vendor.qti.gnss@1.1.so
-vendor/lib64/vendor.qti.gnss@1.2.so
-vendor/lib64/vendor.qti.gnss@2.0.so
-vendor/lib64/vendor.qti.gnss@2.1.so
-vendor/lib64/vendor.qti.gnss@3.0-service.so
-vendor/lib64/vendor.qti.gnss@3.0.so
+# GPS - from LA.UM.8.6.r1-03400-89xx.0
+vendor/bin/hw/android.hardware.gnss@2.0-service-qti|6b0264fb87b4caab908a706fc5d979df5173a311
+vendor/bin/loc_launcher|9623f5f96bd262abc5c883610feca43a5ab214b3
+vendor/bin/lowi-server|2ae6f0aa1acb397db521a5a3087e63e7c0a6b42a
+vendor/bin/slim_daemon|b3e151709e8972553c947086aa33386fade75580
+vendor/bin/xtra-daemon|6791e02a42d3c729acdfac0edb00ea597e0b2623
+vendor/bin/xtwifi-client|4777d4dd92142ba05edeb42d2277c9f208e0d62f
+vendor/bin/xtwifi-inet-agent|45a5db235eb12c322b9ef65797d1650772fbb0b6
+vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc|8e0b0596a13b8d653e6f5415c41d8a53bb12b73a
+vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml|8d7eafd68db9bbe7ec7a5c4d547f026869766081
+vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml|9b2f6691d6c224bcb9ab9a0d57adfb9e52f1b53e
+vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so|9867e9bb8422099a10a5984d23da551be9da06c4
+vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so|6040c00f58e18c0a54e86694813ef997417775d2
+vendor/lib64/libbatching.so|b0751bd8bdacbe6aa9a36476c51c1740652ed18b
+vendor/lib64/libdataitems.so|af5f0d8f90f3a2637d159f30a448b501882295b4
+vendor/lib64/libgdtap.so|5fc6beb99cf918967fd1f3d0cac8b25113d4175a
+vendor/lib64/libgeofencing.so|d99213573aaff17376dda1c1446f212e13f8d84b
+vendor/lib64/libgnsspps.so|8e74447368d804c983950185fb565d22e0d7c769
+vendor/lib64/libgnss.so|66525742d87914c9746de4805214685f94c8d23a
+vendor/lib64/libgps.utils.so|90d371a6f07025aa6ccc7d67d3d96d479d84ad5c
+vendor/lib64/libizat_client_api.so|2343abbe03743adb24a79762feb89a2174b9b838
+vendor/lib64/libizat_core.so|05fb75e5e61a811646f2901209c960b2a7538240
+vendor/lib64/liblbs_core.so|f92314bcf1c10e0887acc5b86257ed69c5c8d2d6
+-vendor/lib64/libloc_api_v02.so|8d68c6faf7b4b8f37d90cd6dcef5561d2c05e1c9
+vendor/lib64/liblocation_api.so|a6b5fc3360fdcadadcc7b751518433660c6123bb
+vendor/lib64/liblocationservice_glue.so|b972df9aa9175cc938e0b903efd7718802022e4d
+vendor/lib64/liblocationservice.so|9c3614d42fbdc22996254e0cc937b37570067658
+vendor/lib64/libloc_core.so|218a13a30401da082cce26e56c0c51ea3fdec5f0
+vendor/lib64/liblowi_client.so|bdc72f191fb383661838b611d18d9fefdec4157c
+vendor/lib64/liblowi_wifihal.so|7bad1b9b7835397d3e5ea3e0abf173278833e74a
+vendor/lib64/libqdma_file_agent.so|bb7b35dae09848f2fceddaac17344d2b7ef4e944
+vendor/lib64/libslimclient.so|e8d0ec174f5e103ec1e2b029abd053da638d9231
+vendor/lib64/libxtadapter.so|14488cedaa1b375f99f973d166674b15f47ad5dc
+vendor/lib64/vendor.qti.gnss@1.0.so|1cce445261939c7a1eace33742e16c09dffe5c0e
+vendor/lib64/vendor.qti.gnss@1.1.so|e9371f32bd2c463e8a9b0197263a96f8f7cc50bb
+vendor/lib64/vendor.qti.gnss@1.2.so|6a2d413eebe1189c361b1c18215c6d90783a65b2
+vendor/lib64/vendor.qti.gnss@2.0.so|2c81cc50f3996553d26d608ca55a273e1d8e75cc
+vendor/lib64/vendor.qti.gnss@2.1.so|0a58c7da5a628e563228587652763dff18c6e3da
+vendor/lib64/vendor.qti.gnss@3.0-service.so|e799172a7113a35b1f17a8c5999713286c104d11
+vendor/lib64/vendor.qti.gnss@3.0.so|168e121b29c34b8940438caad9fd52423a1ceba8
 
 # Graphics - from LA.UM.8.6.r1-04000-89xx.0
 lib/libsdm-disp-apis.so:vendor/lib/libsdm-disp-apis.so|5b006423286008ba9b54b8c29e9ce2ab4b6fa14d
@@ -603,15 +604,14 @@ vendor/firmware/a540_gpmu.fw2
 # IPA
 vendor/bin/ipacm-diag
 
-# Keymaster
-vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
-vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
-vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
-vendor/lib/hw/android.hardware.keymaster@3.0-impl-qti.so
-vendor/lib/libkeymasterdeviceutils.so
-vendor/lib/libkeymasterprovision.so
-vendor/lib/libkeymasterutils.so
-vendor/lib/libqtikeymaster4.so
+# Keymaster - from daisy_sprout - PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+vendor/bin/hw/android.hardware.keymaster@3.0-service-qti|023a0e237fbc068a3191e91e5a1ec0ea5831d52b
+vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc|573b7392c8997008204081165cfe81a11080745d
+vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so|4df4634632c36bd48ccc9de73b77713cd658b012
+vendor/lib64/hw/keystore.msm8953.so|f71f1439c9c356ce05d88b876253b4e3dcb10f4b
+vendor/lib64/libkeymasterdeviceutils.so|3b4d1b97549b15d85254739613fc8d772f716806
+vendor/lib64/libkeymasterprovision.so|7ad925d46a558a8c086a61e022eef328b2516f43
+vendor/lib64/libkeymasterutils.so|4c8273711b5ba1a503d4581f661ed20a1578810d
 
 # Keystore
 vendor/lib/hw/keystore.msm8953.so
@@ -983,6 +983,7 @@ vendor/lib64/lib-imsrcs-v2.so|4cdab1393fbd18cc1db1316f2a0e8fe6a942cf4e
 vendor/lib64/lib-imsrcsbaseimpl.so|4c8a8684e73dd6d147455c244f792e25505131e6
 vendor/lib64/lib-imsvtcore.so|397988b0536ca0a72707bfa573f1c8898207eae4
 vendor/lib64/lib-imsxml.so|a9481cc305037d0b6ad27aac2c4ae105d01295e5
+vendor/lib64/lib-imsSDP.so
 vendor/lib64/lib-rtpcommon.so|28020591c820c15819ec0f7d58355cee659e8a63
 vendor/lib64/lib-rtpcore.so|625717e2a6368d2c5db9a6cebc3d8a443378da1b
 vendor/lib64/lib-rtpsl.so|7b66b555470bbe667de23ed87158158a174cdcc9
@@ -998,21 +999,23 @@ vendor/lib64/vendor.qti.imsrtpservice@2.1.so|b4d690b8ff332233c70bf01bba7d5b57935
 # MOTO RIL
 vendor/lib64/libsensorndkbridge.so
 
-# Sensors
-vendor/bin/capsense_reset
-vendor/bin/sensors.qti
-vendor/lib/hw/activity_recognition.msm8953.so
-vendor/lib/libsensor_reg.so
-vendor/lib/libsensor1.so
-vendor/lib/sensor_calibrate.so
-vendor/lib/sensors.rp.so
-vendor/lib/sensors.ssc.so
-vendor/lib64/hw/activity_recognition.msm8953.so
-vendor/lib64/libsensor_reg.so
-vendor/lib64/libsensor1.so
-vendor/lib64/sensor_calibrate.so
-vendor/lib64/sensors.rp.so
-vendor/lib64/sensors.ssc.so
+# Sensors - from deen_sprout - PPKS29.68-16-33-3
+vendor/bin/capsense_reset|4b5c900b12d15402df8f5f7b9e199f8e63b3f307
+vendor/bin/sensors.qti|dc38040e13bdb2690f6fcf739d4f04cded32fe66
+vendor/lib/hw/activity_recognition.msm8937.so:vendor/lib/hw/activity_recognition.msm8953.so|eadca8d4e8c68387b056cb7b3e43b8058d7bd661
+vendor/lib/libsensor1.so|e8e9848a8d9e27f298d2789b365d962c2e7052ac
+vendor/lib/libsensor_reg.so|789af49787bf4f5fe6d99bd99bcced3a3f088ddc
+vendor/lib/sensor_calibrate.so|97424305830c1a3d4e8bf7a7123d3c957b6fc136
+vendor/lib/sensors.rp.so|e83666a495f3280e829e0046c7627d9782ac1577
+vendor/lib/sensors.ssc.so|57ba67c001cb4bcc818a2ad22ef1396d2f60c81d
+vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so|679e8fce32ce45a0e452ad03699f8afa337d200e
+vendor/lib64/hw/activity_recognition.msm8937.so:vendor/lib64/hw/activity_recognition.msm8953.so|de33d73d021b90586f9053069519c0bc66341ac1
+vendor/lib64/libsensor1.so|cde648fa8af9a5db982f396823a684039f94ac8c
+vendor/lib64/libsensor_reg.so|806c7abfa901028c55d37f4128e2a6de18b8a47b
+vendor/lib64/sensor_calibrate.so|efb71205c08557d2961eff9c7bff20ca89a816d0
+vendor/lib64/sensors.rp.so|45fa1cc519a5fbc7ad359f406f3d125cae54aadc
+vendor/lib64/sensors.ssc.so|60fd557a52a70580b3dda1662820ba315b8b7411
+vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so|6ce2116c91d09258a2a5d08092d40f58f8af8ba0
 
 # Thermal
 vendor/bin/thermal-engine
