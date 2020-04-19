@@ -157,6 +157,11 @@ PRODUCT_PACKAGES += \
     vendor.display.color@1.0-service \
     vendor.display.color@1.0-impl
 
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -263,10 +268,9 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
 
-# Display Calibration
+# Lights
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm \
-    vendor.lineage.livedisplay@2.0-service-sysfs
+    android.hardware.light@2.0-service.ali
 
 # Media (OMX)
 PRODUCT_PACKAGES += \
