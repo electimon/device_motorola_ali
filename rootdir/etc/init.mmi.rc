@@ -227,14 +227,6 @@ on boot
    chown system system /sys/class/timed_output/vibrator/enable
    chmod 0660 /sys/class/timed_output/vibrator/enable
 
-   # Change ownership and permission for laser_sensor
-   chown system system /sys/kernel/range/enable_sar
-   chmod 0660 /sys/kernel/range/enable_sar
-   chown system system /sys/kernel/range/set_delay_ms
-   chmod 0660 /sys/kernel/range/set_delay_ms
-   chown system system /sys/kernel/range/near
-   chmod 0660 /sys/kernel/range/near
-
 # Change ownership and permission for rear_sensor
    chown system system /sys/class/i2c-dev/i2c-2/device/2-0049/enable_sar
    chmod 0660 /sys/class/i2c-dev/i2c-2/device/2-0049/enable_sar
