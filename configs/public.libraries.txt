@@ -23,3 +23,14 @@ libsync.so
 libvulkan.so
 libwebviewchromium_plat_support.so
 libz.so
+libqti-perfd-client.so
+libadsprpc.so
+libcdsprpc.so
+libsdsprpc.so
+liblistenjni.so
+liblistensoundmodel2.so
+libOpenCL.so
+libnpu.so
+libfastcvopt.so
+libmcf-qc-fd-offline.so
+libadspd.so
