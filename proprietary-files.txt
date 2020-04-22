@@ -1098,6 +1098,9 @@ product/etc/permissions/com.motorola.moto-uirefresh.xml
 product/etc/permissions/com.motorola.motodisplay.xml
 etc/permissions/com.motorola.camera2.denali.xml:vendor/etc/permissions/com.motorola.camera2.denali.xml
 
+# NxpNfc
+vendor/lib/libpn553_fw.so
+
 # Offmode charging
 vendor/bin/charge_only_mode
 vendor/bin/hvdcp_opti|a47c8bccf299a1ffcad717e51aad8fdcf192b7bf
