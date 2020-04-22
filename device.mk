@@ -440,16 +440,21 @@ PRODUCT_PACKAGES += \
 # Wifi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
+    dhcpcd.conf \
     hostapd \
+    hostapd_cli \
+    libnl_2 \
+    libnl \
     libqsap_sdk \
-    libwpa_client \
     libQWiFiSoftApCfg \
-    tcpdump \
+    libwifi-hal-qcom \
+    libwpa_client \
     wcnss_service \
     wificond \
     wifilogd \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    wpa_supplicant_wcn.conf
 
 # Wifi Configurations
 PRODUCT_COPY_FILES += \
@@ -461,8 +466,7 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi Display
 PRODUCT_PACKAGES += \
-    libaacwrapper \
-    libnl
+    libaacwrapper
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
