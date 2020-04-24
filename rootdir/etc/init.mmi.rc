@@ -140,8 +140,8 @@ on post-fs-data
     mkdir /data/misc/sds 0750 root root
 
     # Required by FingerPrint Cards (FPC) via init so we don't need to give qseecomd or fingerprintd permissions to create them
-    mkdir /data/fpc 0700 system system
-    mkdir /data/.fps 0770 system fingerp
+    mkdir /data/vendor/fpc 0700 system system
+    mkdir /data/vendor/.fps 0770 system uhid
 
     #Folder for hardware properties
     mkdir /data/hardware_revisions 0755 system system
@@ -182,6 +182,13 @@ on boot
    chown system system /sys/class/timed_output/vibrator/enable
    chmod 0660 /sys/class/timed_output/vibrator/enable
    chown root oem_5020 /sys/bus/i2c/devices/2-005a/reduce
+
+   # Change permission for fingerprint sensor
+   chown system uhid /sys/devices/soc/soc:fpc_fpc1020/dev_enable
+   chown system uhid /sys/devices/soc/soc:fpc_fpc1020/irq
+   chown system uhid /sys/devices/soc/soc:fpc_fpc1020/irq_cnt
+   chmod 0440 /sys/devices/soc/soc:fpc_fpc1020/irq_cnt
+   chmod 0440 /sys/devices/soc/soc:fpc_fpc1020/irq
 
    # change permission for capsensor
    chmod 0660 /sys/class/capsense/enable
