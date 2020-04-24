@@ -360,7 +360,8 @@ PRODUCT_PACKAGES += \
     init.mmi.usb.rc \
     init.qcom.rc \
     init.qcom.ril.sh \
-    ueventd.qcom.rc
+    ueventd.qcom.rc \
+    init.class_main.sh
 
 # Powerhint configuration file
 PRODUCT_COPY_FILES += \
@@ -370,7 +371,7 @@ PRODUCT_COPY_FILES += \
 # RIL
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.2 \
-    android.hardware.radio.config@1.0 \
+    android.hardware.radio.config@1.1 \
     android.hardware.secure_element@1.0 \
     librmnetctl \
     libprotobuf-cpp-full \
