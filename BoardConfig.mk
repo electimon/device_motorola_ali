@@ -151,7 +151,7 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 
 # Camera
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-    /vendor/bin/mm-qcamera-daemon=27
+    /vendor/bin/mm-qcamera-daemon=26
 USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 
@@ -264,8 +264,8 @@ BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_KERNEL_CMDLINE += skip_initramfs rootwait ro init=/init root=/dev/dm-0
 BOARD_KERNEL_CMDLINE += dm=\"system none ro,0 1 android-verity /dev/mmcblk0p52\"
 
-# VNDK
-PRODUCT_USE_VNDK_OVERRIDE := false
+# Treble
+BOARD_VNDK_VERSION := current
 
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
