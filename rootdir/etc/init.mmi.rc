@@ -1,5 +1,6 @@
 # Moto USB configuration
 import /vendor/etc/init/hw/init.mmi.usb.rc
+import /vendor/etc/init/hw/init.hidl.sensor.rc
 
 on early-boot
     write /sys/module/subsystem_restart/parameters/disable_restart_work 0x0
@@ -25,30 +26,30 @@ on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
-    mkdir /persist/camera 0755 oem_5004 oem_5004
-    mkdir /persist/camera/focus 0775 camera oem_5004
-    mkdir /persist/camera/ledcal 0775 camera oem_5004
-    mkdir /persist/batt_health 0755 oem_5001 oem_5001
-    mkdir /persist/mdm 0770 radio radio
-    mkdir /persist/factory 0755 oem_5004 oem_5004
-    mkdir /persist/factory/audio 0755 oem_5004 system
-    mkdir /persist/factory/wlan 0755 oem_5004 oem_5004
-    mkdir /persist/factory/regulatory 0755 oem_5004 system
-    mkdir /persist/public 0755 oem_5004 oem_5004
+    mkdir /mnt/vendor/persist/camera 0755 oem_5004 oem_5004
+    mkdir /mnt/vendor/persist/camera/dualcal 0775 camera oem_5004
+    mkdir /mnt/vendor/persist/camera/focus 0775 camera oem_5004
+    mkdir /mnt/vendor/persist/camera/ledcal 0775 camera oem_5004
+    mkdir /mnt/vendor/persist/batt_health 0775 oem_5001 oem_5001
+    mkdir /mnt/vendor/persist/mdm 0770 radio radio
+    mkdir /mnt/vendor/persist/factory 0755 oem_5004 oem_5004
+    mkdir /mnt/vendor/persist/factory/audio 0755 oem_5004 system
+    mkdir /mnt/vendor/persist/factory/wlan 0755 oem_5004 oem_5004
+    mkdir /mnt/vendor/persist/factory/regulatory 0755 oem_5004 system
+    mkdir /mnt/vendor/persist/public 0755 oem_5004 oem_5004
     mkdir /persist/public/atvc 0770 oem_5012 shell
-    mkdir /persist/public/battd 0755 oem_5000 oem_5004
-    mkdir /persist/public/att_dm 0775 radio oem_5004
-    mkdir /persist/public/hiddenmenu 0775 radio oem_5004
-    mkdir /persist/public/hiddenmenu/data 0775 system oem_5004
+    mkdir /mnt/vendor/persist/public/att_dm 0775 radio oem_5004
+    mkdir /mnt/vendor/persist/public/hiddenmenu 0775 radio oem_5004
+    mkdir /mnt/vendor/persist/public/hiddenmenu/data 0775 system oem_5004
     mkdir /persist/public/locale 0700 system system
     mkdir /persist/public/omadm 0700 radio radio
     mkdir /persist/public/svcs 0770 system system
-    mkdir /persist/wifi 0755 oem_5004 oem_5004
-    mkdir /persist/bt 0755 oem_5004 bluetooth
-    mkdir /persist/wmdrm 0775 oem_5003 oem_5003
+    mkdir /mnt/vendor/persist/wifi 0755 oem_5004 oem_5004
+    mkdir /mnt/vendor/persist/bt 0755 oem_5004 bluetooth
+    mkdir /mnt/vendor/persist/wmdrm 0775 oem_5003 oem_5003
     mkdir /persist/public/usc_dm 0775 radio radio
     mkdir /persist/sds 0700 vold vold
-    mkdir /persist/rfs/msm/mpss/mot_rfs 0771 rfs system
+    mkdir /mnt/vendor/persist/rfs/msm/mpss/mot_rfs 0771 rfs system
 
     # This dir is used to store any OMA(both DM and CP) files in persist partition
     # Any app with radio UID or oem_5004 GID can read/write/execute files in this dir.

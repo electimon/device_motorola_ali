@@ -92,7 +92,7 @@ PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
     $(LOCAL_PATH)/audio/mixer_paths_wcd9306.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_wcd9306.xml \
     $(LOCAL_PATH)/audio/audio_ext_spkr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_ext_spkr.conf \
-    $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml
+    $(LOCAL_PATH)/audio/audio_platform_info_extcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_extcodec.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
@@ -123,11 +123,11 @@ PRODUCT_PACKAGES += \
 
 # Camera Configurations
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/camera/sdm450_mot_ali_camera.xml:system/etc/camera/sdm450_mot_ali_camera.xml \
-    $(LOCAL_PATH)/configs/camera/s5k4h7_chromatix.xml:system/etc/camera/s5k4h7_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_s5k3p8sp_chromatix.xml:system/etc/camera/mot_s5k3p8sp_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_ov5675_chromatix.xml:system/etc/camera/mot_ov5675_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_ov12a10_chromatix.xml:system/etc/camera/mot_ov12a10_chromatix.xml
+    $(LOCAL_PATH)/configs/camera/sdm450_mot_ali_camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/sdm450_mot_ali_camera.xml \
+    $(LOCAL_PATH)/configs/camera/s5k4h7_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/mot_s5k3p8sp_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_s5k3p8sp_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/mot_ov5675_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_ov5675_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/mot_ov12a10_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_ov12a10_chromatix.xml
 
 
 # CarrierConfig
@@ -167,6 +167,7 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
+    android.hidl.base@1.0_system \
     android.hidl.manager@1.0 \
     android.hidl.manager-V1.0-java
 
@@ -301,7 +302,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media/media_codecs_8956.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_8956.xml \
     $(LOCAL_PATH)/configs/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/configs/media/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
     $(LOCAL_PATH)/configs/media/media_profiles_8956.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_8956.xml
 
 PRODUCT_COPY_FILES += \
@@ -365,7 +366,8 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.ril.sh \
     ueventd.qcom.rc \
-    init.class_main.sh
+    init.class_main.sh \
+    init.hidl.sensor.rc
 
 # Powerhint configuration file
 PRODUCT_COPY_FILES += \
@@ -374,8 +376,8 @@ PRODUCT_COPY_FILES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    android.hardware.radio@1.2 \
-    android.hardware.radio.config@1.1 \
+    android.hardware.radio@1.4 \
+    android.hardware.radio.config@1.2 \
     android.hardware.secure_element@1.0 \
     librmnetctl \
     libprotobuf-cpp-full \
@@ -403,8 +405,8 @@ PRODUCT_PROPERTY_OVERRIDES += ro.control_privapp_permissions=log
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf \
-    $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf
+    $(LOCAL_PATH)/configs/sensors/hals.conf:vendor/etc/sensors/hals.conf \
+    $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:vendor/etc/sensors/sensor_def_qcomdev.conf
 
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
