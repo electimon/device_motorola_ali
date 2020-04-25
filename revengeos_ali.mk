@@ -21,6 +21,9 @@ $(call inherit-product, device/motorola/ali/full_ali.mk)
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/revengeos/config/common.mk)
 
+# setup dalvik vm configs
+$(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
+
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 1920

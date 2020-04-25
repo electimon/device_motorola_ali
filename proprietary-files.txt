@@ -96,6 +96,13 @@ vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib/libremosaic_daemon.so
 vendor/lib/libdepthmapwrapper.so
+lib/android.hardware.camera.provider@2.4.so
+vendor/lib/hw/motorola.hardware.camera.provider@2.4-impl.so
+vendor/etc/init/motorola.hardware.camera.provider@2.4-service_delayed.rc
+vendor/lib/libmotocalibration.so
+vendor/lib/motcamera.device@1.0-impl.so
+vendor/lib/motorola.hardware.camera.device@1.0_vendor.so
+vendor/lib/motorola.hardware.camera.provider@2.4_vendor.so
 
 # Camera - from deen_sprout q
 vendor/lib/libmot_gpu_mapper.so 

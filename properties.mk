@@ -63,6 +63,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.enable_default_color_mode=1
 
+# Dalvik
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapgrowthlimit=256m \
+    dalvik.vm.heapmaxfree=8m \
+    dalvik.vm.heapminfree=512k \
+    dalvik.vm.heapsize=512m \
+    dalvik.vm.heapstartsize=8m \
+    dalvik.vm.heaptargetutilization=0.75 \
+    ro.dalvik.vm.native.bridge=0 \
+    ro.sys.fw.dex2oat_thread_count=4 \
+    dalvik.vm.boot-dex2oat-threads=8 \
+    dalvik.vm.dex2oat-threads=4 \
+    dalvik.vm.image-dex2oat-threads=4 \
+    dalvik.vm.dex2oat-filter=speed \
+    dalvik.vm.image-dex2oat-filter=speed \
+    dalvik.vm.stack-trace-dir=/data/anr
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.hwc_set_default_colormode=true \
