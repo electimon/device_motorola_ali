@@ -17,8 +17,11 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/motorola/ali/full_ali.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o.mk)
 
-# Inherit some common CM stuff.
+# Inherit some common RevengeOS stuff.
 $(call inherit-product, vendor/revengeos/config/common.mk)
 
 # setup dalvik vm configs
@@ -43,3 +46,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
 BUILD_FINGERPRINT := motorola/ali/ali:8.1.0/OPPS28.85-13-2/d04a4:user/release-keys
+
+# RevengeOS
+IS_PHONE := true
+REVENGEOS_BUILDTYPE := UNOFFICIAL
+TARGET_BOOT_ANIMATION_RES := 1080
