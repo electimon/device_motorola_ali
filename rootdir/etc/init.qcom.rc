@@ -96,6 +96,28 @@ on early-boot
     # Motorola uses external sensorhub, do not boot the slpi
     # write /sys/kernel/boot_slpi/boot 1
 
+    # for backward compatibility
+    chown system system /persist/sensors
+    chown system system /persist/sensors/registry
+    chown system system /persist/sensors/registry/registry
+    chown system system /persist/sensors/registry/registry/sensors_registry
+    chown system system /persist/sensors/sensors_settings
+    chown system system /persist/sensors/registry/config
+    chmod 0664 /persist/sensors/sensors_settings
+    
+    chown system system /mnt/vendor/persist/sensors
+    chown system system /mnt/vendor/persist/sensors/sns.reg
+    chown system system /mnt/vendor/persist/sensors/sensors_list.txt
+    chown system system /mnt/vendor/persist/sensors/registry
+    chown system system /mnt/vendor/persist/sensors/registry/registry
+    chown system system /mnt/vendor/persist/sensors/registry/registry/sensors_registry
+    chown system system /mnt/vendor/persist/sensors/sensors_settings
+    chown system system /mnt/vendor/persist/sensors/registry/sns_reg_config
+    chown system system /mnt/vendor/persist/sensors/registry/sns_reg_version
+    chown system system /mnt/vendor/persist/sensors/registry/config
+    chown system system /mnt/vendor/persist/sensors/sns.reg
+    chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
+
 on boot
     # access permission for secure touch
     chmod 0660 /sys/devices/soc/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch_enable
@@ -241,6 +263,16 @@ on boot
     chown system system /sys/homebutton/key_screenoff_left
     chown system system /sys/homebutton/key_screenoff_right
 
+    # Allow access to sensors device attributes
+    chown system system /sys/class/sensors/MPU6050-accel/enable
+    chown system system /sys/class/sensors/MPU6050-accel/poll_delay
+    chown system system /sys/class/sensors/MPU6050-gyro/enable
+    chown system system /sys/class/sensors/MPU6050-gyro/poll_delay
+    chown system system /sys/class/sensors/apds9930-light/enable
+    chown system system /sys/class/sensors/apds9930-light/poll_delay
+    chown system system /sys/class/sensors/apds9930-proximity/enable
+    chown system system /sys/class/sensors/apds9930-proximity/poll_delay
+
     write /dev/cpuset/top-app/cpus 0-3
     write /dev/cpuset/top-app/boost/cpus 0-3
     write /dev/cpuset/background/cpus 4-7
@@ -299,6 +331,7 @@ on post-fs-data
 
     # Create directory used for camera
     mkdir /data/vendor/camera 0770 camera camera
+    mkdir /data/misc/camera 0770 camera camera
 
     # Create directory for apps access via QTEEConnector
     mkdir /data/vendor/qtee 0770 system system
@@ -903,3 +936,23 @@ service qcom-c_main-sh /vendor/bin/init.class_main.sh
     user root
     group root system
     oneshot
+
+service vendor.sensors.qti /vendor/bin/sensors.qti
+    class core
+    user system
+    group system
+    disabled
+
+service vendor-sensor-sh /vendor/bin/init.qcom.sensors.sh
+    class core
+    user root  
+    oneshot
+
+
+# ali uses qcom sensor service
+
+service sensors /vendor/bin/sensors.qcom
+    class core
+    user root
+    group root
+    disabled

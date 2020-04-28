@@ -368,7 +368,8 @@ PRODUCT_PACKAGES += \
     init.qcom.ril.sh \
     ueventd.qcom.rc \
     init.class_main.sh \
-    init.hidl.sensor.rc
+    init.hidl.sensor.rc \
+    init.qcom.sensors.sh
 
 # Powerhint configuration file
 PRODUCT_COPY_FILES += \
