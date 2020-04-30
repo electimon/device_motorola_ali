@@ -317,6 +317,10 @@ PRODUCT_PACKAGES += \
     libandroid_net \
     libandroid_net_32
 
+# MotoActions
+PRODUCT_PACKAGES += \
+    MotoActions
+
 # Init
 PRODUCT_PACKAGES += \
     init.ali.rc
@@ -355,20 +359,23 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    init.qcom.fm.sh \
     wlan_carrier_bin.sh
 
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.mmi.boot.sh \
     init.mmi.rc \
+    init.mmi.chipset.rc \
     init.mmi.usb.rc \
     init.qcom.rc \
     init.qcom.ril.sh \
     ueventd.qcom.rc \
     init.class_main.sh \
     init.hidl.sensor.rc \
-    init.qcom.sensors.sh
+    init.qcom.sensors.sh \
+    init.qti.fm.sh \
+    init.qti.fm.rc \
+    init.qcom.sh
 
 # Powerhint configuration file
 PRODUCT_COPY_FILES += \
