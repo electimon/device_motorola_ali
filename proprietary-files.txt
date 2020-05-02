@@ -13,7 +13,7 @@ vendor/lib64/libfastcvopt.so
 lib64/libaptX_encoder.so
 lib64/libaptXHD_encoder.so
 
-# Audio - from river QPU30.52-2
+# Audio
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
@@ -31,19 +31,6 @@ vendor/lib64/libaudioalsa.so
 vendor/lib64/libaudioparsers.so
 vendor/lib64/libqtigef.so
 
-# Audio Hal - from river QPU30.52-2
-vendor/lib/libadm.so
-vendor/lib/liblog_vendor.so
-vendor/lib/libmotaudioutils.so
-vendor/lib/libsensorndkbridge.so
-vendor/lib/libtinycompress.so
-vendor/lib/libtinycompress_vendor.so
-vendor/lib/hw/audio.primary.default.so
-vendor/lib/hw/audio.primary.msm8953.so
-vendor/lib/soundfx/libspeakerbundle.so
-vendor/lib/vndk/libtinyalsa.so
-vendor/lib/libunshorten.so
-
 # Audio ACDB
 vendor/etc/acdbdata/common/Bluetooth_cal.acdb
 vendor/etc/acdbdata/common/General_cal.acdb
@@ -53,7 +40,7 @@ vendor/etc/acdbdata/common/Hdmi_cal.acdb
 vendor/etc/acdbdata/common/Headset_cal.acdb
 vendor/etc/acdbdata/common/Speaker_cal.acdb
 
-# Bluetooth - from river QPU30.52-2
+# Bluetooth
 lib/libbtconfigstore.so
 lib64/libbtconfigstore.so
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
@@ -67,11 +54,11 @@ vendor/lib64/libbt-hidlclient.so
 vendor/lib64/libbthost_if.so
 vendor/lib64/libbtnv.so
 
-# Bluetooth (shared dependencies) - from river QPU30.52-2
+# Bluetooth (shared dependencies)
 vendor/lib/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/com.qualcomm.qti.ant@1.0.so
 
-# Bluetooth Audio - from river QPU30.52-2
+# Bluetooth Audio
 vendor/lib/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
 vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so
@@ -82,6 +69,10 @@ vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/vendor.qti.hardware.btconfigstore@1.0.so
 
 # Camera
+-app/MotoSignatureApp/MotoSignatureApp.apk;PRESIGNED
+etc/permissions/privapp-permissions-com.motorola.camera2.xml
+etc/permissions/com.motorola.camera2.xml
+-priv-app/MotCamera2/MotCamera2.apk;PRESIGNED
 vendor/lib/hw/camera.msm8953.so
 vendor/lib/libhal_dbg.so
 vendor/lib/libactuator_dw9714p.so
@@ -120,18 +111,18 @@ vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib/libremosaic_daemon.so
 vendor/lib/libdepthmapwrapper.so
-lib/android.hardware.camera.provider@2.4.so
-vendor/lib/hw/motorola.hardware.camera.provider@2.4-impl.so
-vendor/etc/init/motorola.hardware.camera.provider@2.4-service_delayed.rc
 vendor/lib/libmotocalibration.so
-vendor/lib/motcamera.device@1.0-impl.so
-vendor/lib/motorola.hardware.camera.device@1.0_vendor.so
-vendor/lib/motorola.hardware.camera.provider@2.4_vendor.so
 vendor/lib/lib_motsensorlistener.so
 vendor/lib/lib_mot_led_calibration.so
 vendor/lib/lib_mot_app6_metadata.so
 vendor/lib/libgui_vendor.so
 vendor/lib/libgui.so
+vendor/lib/libstdc++.so
+vendor/lib/libchromaflash.so
+vendor/lib/liboptizoom.so
+vendor/lib/libtrueportrait.so
+vendor/lib/libubifocus.so
+vendor/lib/libseemore.so
 
 # Camera - from deen_sprout q
 vendor/lib/libmot_gpu_mapper.so 
