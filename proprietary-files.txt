@@ -31,6 +31,15 @@ vendor/lib64/libaudioalsa.so
 vendor/lib64/libaudioparsers.so
 vendor/lib64/libqtigef.so
 
+# Audio ACDB
+vendor/etc/acdbdata/common/Bluetooth_cal.acdb
+vendor/etc/acdbdata/common/General_cal.acdb
+vendor/etc/acdbdata/common/Global_cal.acdb
+vendor/etc/acdbdata/common/Handset_cal.acdb
+vendor/etc/acdbdata/common/Hdmi_cal.acdb
+vendor/etc/acdbdata/common/Headset_cal.acdb
+vendor/etc/acdbdata/common/Speaker_cal.acdb
+
 # Bluetooth
 lib/libbtconfigstore.so
 lib64/libbtconfigstore.so
@@ -895,6 +904,12 @@ vendor/etc/permissions/android.hardware.fingerprint.xml
 vendor/framework/com.fingerprints.extension.jar
 vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib/com.fingerprints.extension@1.0.so
+
+# Firmware
+vendor/firmware/marley-dsp1-ultrasound.wmfw
+vendor/firmware/marley-dsp2-aov-frontend.wmfw
+vendor/firmware/marley-dsp2-aov-vrgain.bin
+vendor/firmware/marley-dsp3-aov-control.wmfw
 
 # FM
 -product/lib/vendor.qti.hardware.fm@1.0.so
