@@ -59,7 +59,7 @@ TARGET_USES_64_BIT_BINDER := true
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := ali,ali_retail
 
-WITH_DEXPREOPT := false
+WITH_DEXPREOPT := true
 
 # GPS
 TARGET_NO_RPC := true
