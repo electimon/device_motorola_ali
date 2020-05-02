@@ -313,6 +313,10 @@ PRODUCT_PACKAGES += \
     libandroid_net \
     libandroid_net_32
 
+# MotoActions
+PRODUCT_PACKAGES += \
+    MotoActions
+
 # Init
 PRODUCT_PACKAGES += \
     init.ali.rc
