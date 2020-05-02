@@ -399,6 +399,9 @@
     <!-- MMS user agent prolfile url -->
     <string name="config_mms_user_agent_profile_url">http://uaprof.motorola.com/phoneconfig/motov1/Profile/motov1.rdf</string>
 
+    <!-- MMS user agent string -->
+    <string name="config_mms_user_agent">motog6</string>
+
     <!-- Flag indicating if the speed up audio on mt call code should be executed -->
     <bool name="config_speed_up_audio_on_mt_calls">true</bool>
 
@@ -499,5 +502,9 @@
 
     <!-- Whether the device has fingeprint sensor or not -->
     <bool name="config_hasFingerprintSensor">true</bool>
+
+    <!-- Configure wifi tcp buffersizes in the form:
+         rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
+    <string name="config_wifi_tcp_buffers">131072,262144,6287200,4096,221184,3145728</string>
 
 </resources>
