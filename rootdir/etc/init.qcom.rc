@@ -279,6 +279,10 @@ on boot
     chown system system /sys/devices/platform/kcal_ctrl.0/kcal_val
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_val
 
+    # Notification LED
+    chown system system /sys/class/leds/white/brightness
+    chmod 660 /sys/class/leds/white/brightness
+
     # Allow access to sensors device attributes
     chown system system /sys/class/sensors/MPU6050-accel/enable
     chown system system /sys/class/sensors/MPU6050-accel/poll_delay
@@ -670,12 +674,6 @@ on property:ro.hw.ecompass=true
 service vendor.netmgrd /vendor/bin/netmgrd
     class main
     group radio system wakelock
-    writepid /dev/cpuset/system-background/tasks
-
-service vendor.qti /vendor/bin/qti
-    class main
-    user radio
-    group radio net_raw oem_2950 usb net_admin
     writepid /dev/cpuset/system-background/tasks
 
 on property:ro.use_data_netmgrd=false

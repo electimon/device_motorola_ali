@@ -124,6 +124,9 @@ vendor/lib/libtrueportrait.so
 vendor/lib/libubifocus.so
 vendor/lib/libseemore.so
 
+# Camera2
+vendor/lib/libmot_afd.so
+
 # Camera - from deen_sprout q
 vendor/lib/libmot_gpu_mapper.so 
 
