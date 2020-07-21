@@ -123,7 +123,8 @@ PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0_32 \
     libjustshoot_shim \
     libgpu_mapper_shim \
-    libgui_vendor
+    libgui_vendor \
+    libwui
 
 # Camera Configurations
 PRODUCT_COPY_FILES += \
