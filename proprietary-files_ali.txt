@@ -36,26 +36,6 @@ vendor/firmware/opalum.tx.ext.config.1
 vendor/firmware/opalum.tx.ext.config.2
 vendor/firmware/opalum.tx.ext.config.3
 
-# DRM
-vendor/bin/qseecomd
-vendor/lib/libcpion.so
-vendor/lib/libcppf.so
-vendor/lib/libdrmfs.so
-vendor/lib/libdrmtime.so
-vendor/lib/libGPQTEEC_vendor.so
-vendor/lib/libGPreqcancel.so
-vendor/lib/libGPreqcancel_svc.so
-vendor/lib/libGPTEE_vendor.so
-vendor/lib/liboemcrypto.so
-vendor/lib/libqisl.so
-vendor/lib/libQSEEComAPI.so
-vendor/lib/librpmb.so
-vendor/lib/libsdedrm.so
-vendor/lib/libSecureUILib.so
-vendor/lib/libsecureui_svcsock.so
-vendor/lib/libssd.so
-vendor/lib/libStDrvInt.so
-
 # Fingerprint
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-fpcservice
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc|d166b4199505e65607b5c2f882b1450d7f899565

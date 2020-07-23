@@ -116,6 +116,21 @@ vendor/lib64/vendor.qti.hardware.factory@1.0.so
 vendor/lib64/vendor.qti.hardware.factory@1.1.so
 vendor/lib64/vendor.qti.latency@2.0.so
 
+# DRM
+vendor/bin/qseecomd
+vendor/lib/libcppf.so
+vendor/lib/liboemcrypto.so
+vendor/lib/libQSEEComAPI.so
+vendor/lib64/libdrmfs.so
+vendor/lib64/libdrmtime.so
+vendor/lib64/libGPreqcancel_svc.so
+vendor/lib64/libGPreqcancel.so
+vendor/lib64/libqisl.so
+vendor/lib64/libQSEEComAPI.so
+vendor/lib64/librpmb.so
+vendor/lib64/libSecureUILib.so
+vendor/lib64/libssd.so
+
 # DRM - HDCP
 vendor/lib/libmm-hdcpmgr.so
 vendor/lib64/libmm-hdcpmgr.so
@@ -570,6 +585,7 @@ vendor/bin/ATFWD-daemon|4037c68c25ef57e1c7637826f3d2b9c5600f0c7a
 vendor/bin/ipacm-diag|22421ac3452271caf40fd9aadcbb0ba90eba6911
 vendor/bin/qti|5236c9b34a28a72a502f7ef2be6d95e39533dd00
 vendor/bin/qmi_motext_hook|1fdc109e99d61a65795aed55eb7447604f002b8c
+vendor/lib/libmdmdetect.so|ec7f736d0d80b594ed162744f85a686e6437c30f
 vendor/lib/libpdmapper.so|fb88d70b13037207ab79cfc289ceecee06501413
 vendor/lib/libpdnotifier.so|897750f36ced03517a3cf49ce99137d74347777e
 -vendor/lib/libqmiservices.so|f11a2d2d8183b0bd5eefb2b6a37ae73861414f66
