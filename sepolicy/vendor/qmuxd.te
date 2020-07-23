@@ -1,1 +1,0 @@
-allow qmuxd socket_device:dir { write add_name };

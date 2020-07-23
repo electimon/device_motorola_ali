@@ -15,7 +15,7 @@
 #
 
 #
-# props for Moto Z
+# props for Moto G6
 #
 
 # QCOM BUILD
@@ -24,7 +24,7 @@
 # once we start upgrading so we can keep track of
 # things properly.
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.version.qcom=LA.UM.7.6.r1-02500-89xx.0
+    ro.vendor.build.version.qcom=LA.UM.7.6.r1-03700-89xx.0
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -68,7 +68,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.qcom.bluetooth.soc=rome
+    vendor.qcom.bluetooth.soc=smd
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -120,14 +120,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mmp.enable.3g2=true \
     vidc.enc.dcvs.extra-buff-count=2 \
     vendor.vidc.enc.disable.pq=true
-
-# HDR
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.display.hdr.config=/vendor/etc/hdr_tm_config.xml
-
-# Mods
-PRODUCT_PROPERTY_OVERRIDES += \
-    sys.mod.platformsdkversion=205
 
 # Netmgr
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -225,10 +217,16 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # QTI Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qti.sensors.dev_ori=false \
-    ro.qti.sensors.mot_detect=false \
-    ro.qti.sensors.pmd=false \
-    ro.qti.sensors.sta_detect=false
+    ro.hardware.sensors=ali \
+    ro.vendor.sensors.amd=false \
+    ro.vendor.sensors.facing=false \
+    ro.vendor.sensors.mot_detect=true \
+    ro.vendor.sensors.sta_detect=true \
+    ro.vendor.sensors.pedometer=false \
+    ro.vendor.sensors.pmd=false \
+    ro.vendor.sensors.rmd=false \
+    ro.vendor.sensors.scrn_ortn=false \
+    ro.vendor.sdk.sensors.gestures=false
 
 # SurfaceFlinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -237,7 +235,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.protected_contents=true \
     ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
     ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000 \
-    ro.surface_flinger.has_HDR_display=true \
     ro.surface_flinger.use_color_management=true
 
 PRODUCT_PROPERTY_OVERRIDES += \

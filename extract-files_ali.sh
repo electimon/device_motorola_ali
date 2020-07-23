@@ -63,30 +63,24 @@ fi
 function blob_fixup() {
     case "${1}" in
 
-    vendor/lib64/libmdmcutback.so)
-        patchelf --add-needed libqsap_shim.so "${2}"
-        ;;
+    vendor/lib/libjustshoot.so)
+         patchelf --add-needed libjustshoot_shim.so "${2}"
+         ;;
 
-    vendor/bin/thermal-engine)
-        sed -i "s|/system/etc/thermal|/vendor/etc/thermal|g" "${2}"
-        ;;
-
-    # Fix xml version
-    product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml | product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml)
-        sed -i 's/xml version="2.0"/xml version="1.0"/' "${2}"
-        ;;
-
-    vendor/lib/libmot_gpu_mapper.so)
+    vendor/lib/libmmcamera_vstab_module.so)
         sed -i "s/libgui/libwui/" "${2}"
         ;;
 
+    vendor/lib/hw/camera.msm8953.so)
+        sed -i "s|service.bootanim.exit|service.bootanim.hold|g" "${2}"
+        ;;
     esac
 }
 
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${REVENGEOS_ROOT}" false "${CLEAN_VENDOR}"
 
-extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
+extract "${MY_DIR}/proprietary-files_ali.txt" "${SRC}" \
         "${KANG}" --section "${SECTION}"
 
 "${MY_DIR}/setup-makefiles.sh"

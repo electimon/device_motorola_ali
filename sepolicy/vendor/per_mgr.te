@@ -1,4 +1,0 @@
-allow vendor_per_mgr self:capability net_raw;
-allow vendor_per_mgr fsg_file:file { open read };
-allow vendor_per_mgr firmware_file:file { open read };
-allow vendor_per_mgr unlabeled:file { open read };

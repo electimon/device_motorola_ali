@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_griffin.mk
+    $(LOCAL_DIR)/revengeos_ali.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_griffin-user \
-    lineage_griffin-userdebug \
-    lineage_griffin-eng
+    revengeos_ali-user \
+    revengeos_ali-userdebug \
+    revengeos_ali-eng

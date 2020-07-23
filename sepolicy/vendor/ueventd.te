@@ -1,8 +1,0 @@
-allow ueventd device:chr_file { relabelfrom relabelto };
-allow ueventd input_device:chr_file { relabelfrom relabelto };
-allow ueventd video_device:chr_file { relabelfrom relabelto };
-allow ueventd sysfs_mmi_touch:file w_file_perms;
-allow ueventd sysfs_mmi_touch:dir search;
-allow ueventd self:netlink_kobject_uevent_socket { read };
-allow ueventd video_device:chr_file { relabelfrom relabelto };
-allow ueventd unlabeled:file { getattr open read };

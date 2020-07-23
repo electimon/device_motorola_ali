@@ -18,7 +18,7 @@
 
 set -e
 
-DEVICE=griffin
+DEVICE=ali
 VENDOR=motorola
 
 INITIAL_COPYRIGHT_YEAR=2017
@@ -27,9 +27,9 @@ INITIAL_COPYRIGHT_YEAR=2017
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-LINEAGE_ROOT="${MY_DIR}/../../.."
+REVENGEOS_ROOT="${MY_DIR}/../../.."
 
-HELPER="${LINEAGE_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
+HELPER="${REVENGEOS_ROOT}/vendor/revengeos/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
@@ -37,14 +37,14 @@ fi
 source "${HELPER}"
 
 # Initialize the helper for common
-setup_vendor "${DEVICE}" "${VENDOR}" "${LINEAGE_ROOT}"
+setup_vendor "${DEVICE}" "${VENDOR}" "${REVENGEOS_ROOT}"
 
 # Copyright headers and guards
 write_headers
 
 # The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
-write_makefiles "${MY_DIR}/proprietary-files_griffin.txt" true
+write_makefiles "${MY_DIR}/proprietary-files_ali.txt" true
 
 cat << EOF >> "$ANDROIDMK"
 EOF

@@ -27,7 +27,8 @@
 
 import /vendor/etc/init/hw/init.qcom.power.rc
 import /vendor/etc/init/hw/init.mmi.usb.rc
-import /vendor/etc/init/hw/init.griffin.rc
+import /vendor/etc/init/hw/init.ali.rc
+import /vendor/etc/init/hw/init.mmi.overlay.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -376,7 +377,7 @@ on fs
     mkdir /persist/bms 0700 root system
     restorecon_recursive   /persist
 
-    # for android.hardware.health@2.0-service.griffin cycle count backup
+    # for android.hardware.health@2.0-service.ali cycle count backup
     mkdir /persist/battery 0700 system system
 
 on late-fs

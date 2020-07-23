@@ -49,7 +49,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.vr.high_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vr.high_performance.xml \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level-0.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_1.xml \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute-0.xml
@@ -76,7 +75,7 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio.primary.msm8996 \
+    audio.primary.msm8953 \
     audio.a2dp.default \
     audio.r_submix.default \
     audio.usb.default \
@@ -151,10 +150,10 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    gralloc.msm8996 \
-    copybit.msm8996 \
-    memtrack.msm8996 \
-    hwcomposer.msm8996 \
+    gralloc.msm8953 \
+    copybit.msm8953 \
+    memtrack.msm8953 \
+    hwcomposer.msm8953 \
     libdisplayconfig \
     libgenlock \
     liboverlay \
@@ -200,13 +199,9 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl:64 \
     android.hardware.gatekeeper@1.0-service
 
-# HDR
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/hdr_tm_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hdr_tm_config.xml
-
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service.griffin
+    android.hardware.health@2.0-service.ali
 
 # HW crypto
 PRODUCT_PACKAGES += \
@@ -221,7 +216,7 @@ PRODUCT_PACKAGES += \
 
 # IDC
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/idc/fpc1020.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/fpc1020.idc
+    $(LOCAL_PATH)/idc/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -242,10 +237,7 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/fpc1020.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/fpc1020.kl \
-    $(LOCAL_PATH)/keylayout/synaptics_dsx.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics.kl \
-    $(LOCAL_PATH)/keylayout/synaptics_dsx.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics_dsx.kl \
-    $(LOCAL_PATH)/keylayout/msm8996-florida-snd-card_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/msm8996-florida-snd-card_Button_Jack.kl
+    $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
@@ -254,7 +246,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.griffin
+    android.hardware.light@2.0-service.ali
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
@@ -270,10 +262,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
-
-# ModService
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/whitelist_modservice.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/whitelist_modservice.xml
 
 # Net
 PRODUCT_PACKAGES += \
@@ -314,7 +302,7 @@ PRODUCT_PACKAGES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service-qti \
-    thermal.msm8996 \
+    thermal.msm8953 \
     android.hardware.thermal@1.0-impl:64 \
     android.hardware.thermal@1.0-service
 
@@ -350,10 +338,12 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    init.audio.specified_para.sh \
     init.mmi.laser.sh \
+    init.mmi.overlay.rc \
     init.mmi.usb.rc \
     init.qcom.rc \
-    init.griffin.rc \
+    init.ali.rc \
     init.qcom.power.rc \
     ueventd.qcom.rc \
     wlan_carrier_bin.sh
@@ -402,32 +392,18 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
-
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
 
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-service.griffin
-
 # VNDK
 # Update this list with what each blob is actually for
 # libicuuc: vendor.qti.hardware.qteeconnector@1.0-impl
-# libstdc++: camera.msm8996
+# libstdc++: camera.msm8953
 PRODUCT_PACKAGES += \
     libicuuc.vendor \
     libstdc++.vendor \
     vndk_package
-
-# VR
-PRODUCT_PACKAGES += \
-    vr.msm8996 \
-    android.hardware.vr@1.0-impl:64 \
-    android.hardware.vr@1.0-service
 
 # WiFi HAL
 PRODUCT_PACKAGES += \

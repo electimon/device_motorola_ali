@@ -1,7 +1,0 @@
-allow thermal-engine { sysfs sysfs_devices_system_cpu }:file { getattr read write open };
-allow thermal-engine sysfs_thermal:dir search;
-allow thermal-engine { sysfs_thermal sysfs_kgsl }:{ lnk_file file } { rw_file_perms open getattr};
-allow thermal-engine sysfs_battery_supply:dir search;
-allow thermal-engine sysfs_battery_supply:file rw_file_perms;
-allow thermal-engine sysfs_batteryinfo:dir r_dir_perms;
-allow thermal-engine sysfs_batteryinfo:file rw_file_perms;

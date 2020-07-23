@@ -1,1 +1,0 @@
-allow wcnss_service sysfs:file rw_file_perms;

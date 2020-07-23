@@ -1,3 +1,0 @@
-allow mediacodec firmware_file:file { open read };
-allow mediacodec unlabeled:file { open read };
-allow mediacodec rootfs:lnk_file getattr;

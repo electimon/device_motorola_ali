@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "android.hardware.health@2.0-service.griffin"
+#define LOG_TAG "android.hardware.health@2.0-service.ali"
 #include <android-base/logging.h>
 
 #include <healthd/healthd.h>
@@ -30,12 +30,10 @@
 #include <sys/stat.h>
 
 #include "CycleCountBackupRestore.h"
-#include "LearnedCapacityBackupRestore.h"
 
 using android::hardware::health::V2_0::StorageInfo;
 using android::hardware::health::V2_0::DiskStats;
-using ::device::motorola::griffin::health::CycleCountBackupRestore;
-using ::device::motorola::griffin::health::LearnedCapacityBackupRestore;
+using ::device::motorola::ali::health::CycleCountBackupRestore;
 
 static constexpr int kBackupTrigger = 20;
 static constexpr size_t kDiskStatsSize = 11;
@@ -45,7 +43,6 @@ static constexpr char kUFSName[] = "UFS0";
 static constexpr char kDiskStatsFile[] = "/sys/block/sda/stat";
 
 static CycleCountBackupRestore ccBackupRestore;
-static LearnedCapacityBackupRestore lcBackupRestore;
 
 int cycle_count_backup(int battery_level)
 {
@@ -77,14 +74,11 @@ int cycle_count_backup(int battery_level)
 void healthd_board_init(struct healthd_config*)
 {
     ccBackupRestore.Restore();
-    lcBackupRestore.Restore();
 }
 
 int healthd_board_battery_update(struct android::BatteryProperties *props)
 {
-    cycle_count_backup(props->batteryLevel);
-    lcBackupRestore.Backup();
-    return 0;
+    return cycle_count_backup(props->batteryLevel);
 }
 
 void get_storage_info(std::vector<StorageInfo>& vec_storage_info) {

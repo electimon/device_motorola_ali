@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 cc_binary {
-    name: "android.hardware.health@2.0-service.griffin",
-    init_rc: ["android.hardware.health@2.0-service.griffin.rc"],
+    name: "android.hardware.health@2.0-service.ali",
+    init_rc: ["android.hardware.health@2.0-service.ali.rc"],
     proprietary: true,
     relative_install_path: "hw",
     srcs: [
         "HealthService.cpp",
         "CycleCountBackupRestore.cpp",
-        "LearnedCapacityBackupRestore.cpp",
     ],
 
     cflags: [

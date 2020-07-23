@@ -1,2 +1,0 @@
-allow mediadrmserver rootfs:lnk_file getattr;
-allow mediadrmserver unlabeled:file { getattr open read };

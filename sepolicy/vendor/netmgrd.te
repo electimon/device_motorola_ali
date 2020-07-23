@@ -1,5 +1,0 @@
-allow netmgrd init:unix_stream_socket connectto;
-allow netmgrd property_socket:sock_file write;
-allow netmgrd sysfs:file r_file_perms;
-
-set_prop(netmgrd, vendor_xlat_prop)
