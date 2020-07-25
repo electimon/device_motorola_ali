@@ -72,8 +72,8 @@ vendor/lib/libbase64.so
 vendor/lib/libcapiv2svacnn.so
 vendor/lib/libcapiv2vop.so
 vendor/lib/libflash_pmic.so
-vendor/lib/libgui_vendor.so
 vendor/lib/libjpegdhw.so
+vendor/lib/libgralloc1.so
 vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libmm-qcamera.so
