@@ -44,15 +44,6 @@ vendor/framework/com.fingerprints.extension.jar
 vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib/com.fingerprints.extension@1.0.so
 
-# Gatekeeper
-vendor/lib/hw/gatekeeper.msm8953.so
-
-# Keystore
-vendor/lib/hw/keystore.msm8953.so
-
-# Keymaster
-vendor/lib/libkeymasterprovision.so
-
 # Sensors
 vendor/bin/capsense_set_threshold
 vendor/bin/sensors.qti

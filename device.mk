@@ -194,11 +194,6 @@ PRODUCT_PACKAGES += \
     sap.conf \
     xtwifi.conf
 
-# Gatekeeper HAL
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl:64 \
-    android.hardware.gatekeeper@1.0-service
-
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-service.ali
