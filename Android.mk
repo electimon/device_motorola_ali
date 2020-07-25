@@ -1,6 +1,5 @@
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright 2018 The LineageOS Project
+# Copyright 2014 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -32,19 +31,9 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
-# Create links for audcal data files
-$(shell mkdir -p $(TARGET_OUT_VENDOR)/etc/firmware/wcd9320; \
-	ln -sf /data/vendor/misc/audio/wcd9320_anc.bin \
-		$(TARGET_OUT_VENDOR)/etc/firmware/wcd9320/wcd9320_anc.bin;\
-	ln -sf /data/vendor/misc/audio/mbhc.bin \
-		$(TARGET_OUT_VENDOR)/etc/firmware/wcd9320/wcd9320_mbhc.bin; \
-	ln -sf /data/vendor/misc/audio/wcd9320_mad_audio.bin \
-		$(TARGET_OUT_VENDOR)/etc/firmware/wcd9320/wcd9320_mad_audio.bin)
-
-
-$(shell mkdir -p $(TARGET_OUT_ETC)/firmware; \
+$(shell mkdir -p $(TARGET_OUT_VENDOR)/firmware; \
     ln -sf /dev/block/bootdevice/by-name/msadp \
-        $(TARGET_OUT_ETC)/firmware/msadp)
+        $(TARGET_OUT_VENDOR)/firmware/msadp)
 
 #A/B builds require us to create the mount points at compile time.
 #Just creating it for all cases since it does not hurt.
@@ -61,7 +50,6 @@ ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_MOUNT_POINT) \
 $(FIRMWARE_MOUNT_POINT):
 	@echo "Creating $(FIRMWARE_MOUNT_POINT)"
 	@mkdir -p $(TARGET_OUT_VENDOR)/firmware_mnt
-	@ln -sf /vendor/firmware_mnt $(TARGET_OUT_VENDOR)/f
 
 $(BT_FIRMWARE_MOUNT_POINT):
 	@echo "Creating $(BT_FIRMWARE_MOUNT_POINT)"
@@ -83,16 +71,6 @@ $(DSP_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(DSP_SYMLINK)
 
-MODS_LIBS := libmodhw.so libvibratorhw.so
-MODS_SYMLINKS := $(addprefix $(TARGET_OUT)/priv-app/ModFmwkProxyService/lib/arm64/,$(notdir $(MODS_LIBS)))
-$(MODS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "MODS lib link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /system/lib64/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(MODS_SYMLINKS)
-
 IMS_LIBS := libimscamera_jni.so libimsmedia_jni.so
 IMS_SYMLINKS := $(addprefix $(TARGET_OUT_PRODUCT_APPS_PRIVILEGED)/ims/lib/arm64/,$(notdir $(IMS_LIBS)))
 $(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -102,16 +80,6 @@ $(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /system/product/lib64/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(IMS_SYMLINKS)
-
-BT_FIRMWARE := btfw32.tlv btnv32.bin btnv32.b15
-BT_FIRMWARE_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(BT_FIRMWARE)))
-$(BT_FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Creating BT firmware symlink: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /bt_firmware/image/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(BT_FIRMWARE_SYMLINKS)
 
 RFS_MSM_ADSP_SYMLINKS := $(TARGET_OUT_VENDOR)/rfs/msm/adsp/
 $(RFS_MSM_ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -150,5 +118,26 @@ $(RFS_MSM_MPSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /vendor/firmware $@/readonly/vendor/firmware
 
 ALL_DEFAULT_INSTALLED_MODULES += $(RFS_MSM_ADSP_SYMLINKS) $(RFS_MSM_MPSS_SYMLINKS) $(RFS_MSM_SLPI_SYMLINKS)
+
+EGL_SYMLINK := $(TARGET_OUT_VENDOR)/lib/libGLESv2_adreno.so
+$(EGL_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@mkdir -p $(dir $@)
+	$(hide) ln -sf egl/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(EGL_SYMLINK)
+
+WIFI_SYMLINKS := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/
+$(WIFI_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Creating WCNSS Symlinks: $@"
+	@rm -rf $@/*
+	@mkdir -p $(dir $@)
+	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_wlan_nv.bin $(dir $@)
+	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_wlan_nv_Argentina.bin $(dir $@)
+	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_wlan_nv_Brazil.bin $(dir $@)
+	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_wlan_nv_India.bin $(dir $@)
+	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_wlan_nv_epa.bin $(dir $@)
+	$(hide) ln -sf /vendor/etc/wifi/WCNSS_wlan_dictionary.dat $(dir $@)
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WIFI_SYMLINKS)
 
 endif
