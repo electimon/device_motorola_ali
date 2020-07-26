@@ -717,3 +717,9 @@ vendor/lib64/sensor_calibrate.so
 vendor/lib64/sensors.rp.so
 vendor/lib64/sensors.ssc.so
 
+# Power-Hardware
+vendor/bin/hw/android.hardware.power@1.0-service
+vendor/etc/init/android.hardware.power@1.0-service.rc
+vendor/lib/hw/android.hardware.power@1.0-impl.so
+vendor/lib/hw/power.default.so
+vendor/lib/hw/power.qcom.so
