@@ -66,6 +66,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.endcall.delay=250 \
     persist.vendor.audio.fluence.voicecomm=true
 
+# Audio ACDB
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.audio.calfile0=/vendor/etc/acdbdata/common/Bluetooth_cal.acdb \
+    persist.vendor.audio.calfile1=/vendor/etc/acdbdata/common/General_cal.acdb \
+    persist.vendor.audio.calfile2=/vendor/etc/acdbdata/common/Global_cal.acdb \
+    persist.vendor.audio.calfile3=/vendor/etc/acdbdata/common/Handset_cal.acdb \
+    persist.vendor.audio.calfile4=/vendor/etc/acdbdata/common/Hdmi_cal.acdb \
+    persist.vendor.audio.calfile5=/vendor/etc/acdbdata/common/Headset_cal.acdb \
+    persist.vendor.audio.calfile6=/vendor/etc/acdbdata/common/Speaker_cal.acdb
+
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=smd
@@ -147,20 +157,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase.ms=android-motorola \
     ro.com.google.clientidbase.yt=android-motorola
 
-# IMS
+# Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=1 \
     persist.dbg.wfc_avail_ovr=1 \
-    persist.vendor.ims.dropset_feature=0 \
-    persist.vendor.ims.disableADBLogs=2 \
-    persist.vendor.ims.disableDebugLogs=0 \
-    persist.vendor.ims.disableQXDMLogs=0 \
-    persist.vendor.ims.disableIMSLogs=0 \
-    persist.vendor.ims.vt.enableadb=1
-
-# RIL
-PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.no_wait_for_card=1 \
     persist.vendor.radio.dfr_mode_set=1 \
     persist.vendor.radio.relay_oprt_change=1 \
@@ -177,35 +178,44 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.rat_on=combine \
     persist.vendor.radio.sw_mbn_update=1 \
     persist.vendor.radio.jbims=1 \
-    persist.vendor.radio.sar_sensor=1 \
-    persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.msgtunnel.start=true \
+    persist.vendor.radio.sar_sensor=1 \
     persist.vendor.radio.apn_delay=5000 \
     persist.vendor.radio.calls.on.ims=true \
     persist.vendor.radio.domain.ps=0 \
+    persist.vendor.radio.fi_supported=1 \
     persist.vendor.cne.rat.wlan.chip.oem=WCN \
-    persist.radio.adb_log_on=0 \
-    persist.radio.apm_sim_not_pwdn=1 \
-    persist.radio.eons.enabled=false \
-    persist.radio.msgtunnel.start=true \
-    persist.radio.sar_sensor=1 \
-    persist.radio.apn_delay=5000 \
-    persist.radio.calls.on.ims=true \
-    persist.radio.domain.ps=0 \
+    persist.vendor.sys.cnd.iwlan=1 \
+    persist.vendor.data.mode=concurrent \
+    persist.data.netmgrd.qos.enable=true \
+    persist.radio.aosp_usr_pref_sel=true \
+    persist.radio.pb.min.match=7 \
+    persist.radio.fi_supported=1 \
     persist.data.qmi.adb_logmask=0 \
+    persist.radio.adb_log_on=0 \
+    persist.vendor.radio.apm_sim_not_pwdn=1 \
+    persist.vendor.radio.multisim_switch_support=true \
     persist.vendor.radio.procedure_bytes=SKIP \
     persist.vendor.radio.aosp_usr_pref_sel=true \
     persist.vendor.radio.flexmap_type=none \
+    persist.vendor.radio.data_con_rprt=true \
+    persist.vendor.radio.add_power_save=1 \
     persist.net.doxlat=true \
-    persist.sys.qc.sub.rdump.on=1 \
-    persist.sys.qc.sub.rdump.max=0 \
+    persist.vendor.qc.sub.rdump.on=1 \
+    persist.vendor.qc.sub.rdump.max=3 \
     ro.telephony.call_ring.multiple=false \
-    ril.subscription.types=NV,RUIM \
-    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
-    vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
+    ro.telephony.default_network=10,10 \
+    ro.vendor.telephony.default_network=10,10 \
+    ro.vendor.use_data_netmgrd=true \
     ro.telephony.iwlan_operation_mode=legacy \
-    ro.vendor.build.vendorprefix=/vendor \
-    ro.build.vendorprefix=/vendor
+    persist.vendor.ims.dropset_feature=0 \
+    persist.vendor.ims.disableDebugLogs=0 \
+    persist.vendor.ims.disableIMSLogs=0 \
+    persist.vendor.ims.disableDebugDataPathLogs=0 \
+    persist.vendor.ims.disableADBLogs=0 \
+    persist.vendor.ims.vt.enableadb=3 \
+    persist.vendor.ims.disableQXDMLogs=1 \
+    ro.vendor.build.vendorprefix=/vendor
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.fflag.override.settings_network_and_internet_v2=true \
