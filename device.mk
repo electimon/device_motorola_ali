@@ -333,16 +333,24 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
+    wlan_carrier_bin.sh
+
+PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.audio.specified_para.sh \
-    init.mmi.laser.sh \
-    init.mmi.overlay.rc \
+    init.mmi.boot.sh \
+    init.mmi.rc \
+    init.mmi.chipset.rc \
     init.mmi.usb.rc \
     init.qcom.rc \
-    init.ali.rc \
-    init.qcom.power.rc \
+    init.qcom.post_boot.sh \
+    init.qcom.ril.sh \
     ueventd.qcom.rc \
-    wlan_carrier_bin.sh
+    init.class_main.sh \
+    init.hidl.sensor.rc \
+    init.qcom.sensors.sh \
+    init.qti.fm.sh \
+    init.qti.fm.rc \
+    init.qcom.sh
 
 # RCS
 PRODUCT_PACKAGES += \

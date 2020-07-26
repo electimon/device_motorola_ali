@@ -1,4 +1,5 @@
-# Copyright (c) 2009-2012, 2014-2018, The Linux Foundation. All rights reserved.
+#!/vendor/bin/sh
+# Copyright (c) 2015,2018 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -25,23 +26,20 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-on init
-    setprop ro.vendor.hw.dualsim ${ro.boot.dualsim}
-    setprop ro.vendor.hw.device ${ro.boot.device}
-    setprop ro.vendor.hw.radio ${ro.boot.radio}
-    setprop ro.hw.radio ${ro.boot.radio}
-
-on property:ro.vendor.hw.dualsim=true
-    setprop persist.radio.multisim.config dsds
-
-on property:ro.vendor.hw.dualsim=false
-    setprop persist.radio.multisim.config ""
-
-#on property:ro.boot.hardware.sku=XT1650-03
-#    setprop ro.telephony.default_network "10,0"
 #
-#on property:ro.boot.hardware.sku=XT1650-05
-#    setprop ro.telephony.default_network "22,20"
+# Function to start sensors for SSC enabled platforms
+#
+start_sensors()
+{
+    sscrpcd_status=`getprop init.svc.vendor.sensors`
+    chmod -h 664 /persist/sensors/sensors_settings
+    chown -h -R system.system /persist/sensors
+    start vendor.sensors.qti
 
-on property:sys.listeners.registered=*
-    setprop vendor.sys.keymaster.loaded ${sys.listeners.registered}
+    # Only for SLPI
+    if [ -c /dev/msm_dsps -o -c /dev/sensors ] && [ -z "$sscrpcd_status" ]; then
+        start vendor.sensors
+    fi
+}
+
+start_sensors
