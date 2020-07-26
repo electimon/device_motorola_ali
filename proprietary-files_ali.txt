@@ -44,18 +44,6 @@ vendor/framework/com.fingerprints.extension.jar
 vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib/com.fingerprints.extension@1.0.so
 
-# Sensors
-vendor/bin/capsense_set_threshold
-vendor/bin/sensors.qti
-vendor/lib/hw/activity_recognition.msm8953.so
-vendor/lib/libsensor1.so
-vendor/lib/libsensorcal.so
-vendor/lib/libsensorndkbridge.so
-vendor/lib/libsensor_reg.so
-vendor/lib/sensors.rp.so
-vendor/lib/sensors.ssc.so
-vendor/lib/sensor_calibrate.so
-
 # Thermal
 etc/thermal-engine-ali.conf:vendor/etc/thermal-engine-ali.conf
 etc/thermal-engine-ali1.conf:vendor/etc/thermal-engine-ali1.conf
