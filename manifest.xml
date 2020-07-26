@@ -205,22 +205,15 @@
     <hal format="hidl">
         <name>android.hardware.radio</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>IRadio</name>
-            <instance>slot1</instance>
-            <instance>slot2</instance>
-        </interface>
-        <interface>
-            <name>ISap</name>
-            <instance>slot1</instance>
-            <instance>slot2</instance>
-        </interface>
+        <fqname>@1.4::IRadio/slot1</fqname>
+        <fqname>@1.4::IRadio/slot2</fqname>
+        <fqname>@1.2::ISap/slot1</fqname>
+        <fqname>@1.2::ISap/slot2</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.radio.config</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IRadioConfig</name>
             <instance>default</instance>
@@ -326,15 +319,6 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>com.motorola.mod</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IModManager</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>com.qualcomm.qti.imscmservice</name>
         <transport>hwbinder</transport>
         <version>2.2</version>
@@ -380,15 +364,6 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.data.factory</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>IFactory</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>vendor.qti.gnss</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -418,7 +393,7 @@
     <hal format="hidl">
         <name>vendor.qti.hardware.data.connection</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
+        <version>1.0</version>
         <interface>
             <name>IDataConnection</name>
             <instance>slot1</instance>
@@ -561,7 +536,7 @@
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.uim</name>
         <transport>hwbinder</transport>
-        <version>1.2</version>
+        <version>1.1</version>
         <interface>
             <name>IUim</name>
             <instance>Uim0</instance>
@@ -604,6 +579,24 @@
         <interface>
             <name>IRTPService</name>
             <instance>imsrtpservice</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>com.quicinc.cne.api</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IApiService</name>
+            <instance>cnd</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>com.quicinc.cne.server</name>
+        <transport>hwbinder</transport>
+        <version>2.2</version>
+        <interface>
+            <name>IServer</name>
+            <instance>cnd</instance>
         </interface>
     </hal>
     <hal format="hidl">
