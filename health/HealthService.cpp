@@ -40,7 +40,7 @@ static constexpr size_t kDiskStatsSize = 11;
 static constexpr char kUFSHealthFile[] = "/sys/devices/soc/624000.ufshc/health";
 static constexpr char kUFSHealthVersionFile[] = "/sys/kernel/debug/ufshcd0/show_hba";
 static constexpr char kUFSName[] = "UFS0";
-static constexpr char kDiskStatsFile[] = "/sys/block/sda/stat";
+static constexpr char kDiskStatsFile[] = "/sys/block/dm-0/stat";
 
 static CycleCountBackupRestore ccBackupRestore;
 
