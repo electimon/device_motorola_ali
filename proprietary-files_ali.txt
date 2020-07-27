@@ -59,7 +59,6 @@ vendor/lib/hw/camera.msm8953.so
 vendor/lib/libbase64.so
 vendor/lib/libcapiv2svacnn.so
 vendor/lib/libcapiv2vop.so
-vendor/lib/libflash_pmic.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libgralloc1.so
 vendor/lib/libjpegdmahw.so
@@ -609,6 +608,12 @@ vendor/firmware/cpp_firmware_v1_5_1.fw
 vendor/firmware/cpp_firmware_v1_5_2.fw
 vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
+
+# Camera-flash
+vendor/lib/libflash_aw3641.so
+vendor/lib/libflash_pmic.so
+vendor/lib/libflash_sky81298.so
+vendor/lib/libflash_wd3100.so
 
 # Camera-misc
 vendor/lib/lib_mot_led_calibration.so
