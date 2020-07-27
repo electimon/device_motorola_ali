@@ -764,3 +764,11 @@ vendor/firmware/focaltech-biel-ft5446-03-0001-ali.bin
 vendor/firmware/focaltech-ofilm-ft5446-0e-0001-ali.bin
 vendor/firmware/focaltech-toptouch-ft5446-07-0001-ali.bin
 vendor/firmware/FT8006U_Pramboot.bin
+
+# Wi-Fi
+vendor/etc/wifi/WCNSS_qcom_wlan_nv.bin
+vendor/etc/wifi/WCNSS_qcom_wlan_nv_Argentina.bin
+vendor/etc/wifi/WCNSS_qcom_wlan_nv_Brazil.bin
+vendor/etc/wifi/WCNSS_qcom_wlan_nv_epa.bin
+vendor/etc/wifi/WCNSS_qcom_wlan_nv_India.bin
+vendor/etc/wifi/WCNSS_wlan_dictionary.dat
