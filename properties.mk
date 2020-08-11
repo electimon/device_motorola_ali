@@ -107,6 +107,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.coresight.config=stm-events
 
+# Disable VSync for CPU Rendered Apps
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.cpurend.vsync=false
+
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.gralloc.enable_fb_ubwc=1 \
@@ -266,3 +270,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
+
