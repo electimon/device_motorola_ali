@@ -173,6 +173,10 @@ BOARD_USES_QC_TIME_SERVICES := true
 # Recovery
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(PLATFORM_PATH):libinit_ali
+TARGET_RECOVERY_DEVICE_MODULES := //$(PLATFORM_PATH):libinit_ali
+
 # Root
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /mnt/vendor/persist:/persist
