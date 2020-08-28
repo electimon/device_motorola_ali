@@ -36,9 +36,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.ssr=false \
     persist.audio.dualmic.config=endfire \
     ro.vendor.audio.sdk.fluencetype=none \
-    persist.vendor.audio.fluence.voicecall=true \
-    persist.vendor.audio.fluence.voicerec=false \
+    persist.vendor.audio.fluence.audiorec=false \
     persist.vendor.audio.fluence.speaker=true \
+    persist.vendor.audio.fluence.voicecall=true \
+    persist.vendor.audio.fluence.voicecomm=true \
+    persist.vendor.audio.fluence.voicerec=false \
     vendor.audio.tunnel.encode=false \
     vendor.audio.offload.buffer.size.kb=64 \
     vendor.audio.offload.pcm.16bit.enable=false \
@@ -65,16 +67,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.fluence.mode=none \
     persist.vendor.audio.endcall.delay=250 \
     persist.vendor.audio.fluence.voicecomm=true
-
-# Audio ACDB
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.audio.calfile0=/vendor/etc/acdbdata/common/Bluetooth_cal.acdb \
-    persist.vendor.audio.calfile1=/vendor/etc/acdbdata/common/General_cal.acdb \
-    persist.vendor.audio.calfile2=/vendor/etc/acdbdata/common/Global_cal.acdb \
-    persist.vendor.audio.calfile3=/vendor/etc/acdbdata/common/Handset_cal.acdb \
-    persist.vendor.audio.calfile4=/vendor/etc/acdbdata/common/Hdmi_cal.acdb \
-    persist.vendor.audio.calfile5=/vendor/etc/acdbdata/common/Headset_cal.acdb \
-    persist.vendor.audio.calfile6=/vendor/etc/acdbdata/common/Speaker_cal.acdb
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -142,6 +134,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.use_data_netmgrd=true \
     persist.data.netmgrd.qos.enable=true \
     persist.vendor.data.mode=concurrent
+
+# OEM Unlock
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.oem_unlock_supported=false
 
 # OMX
 # Rank OMX SW codecs lower than OMX HW codecs
