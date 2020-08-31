@@ -164,10 +164,6 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service
-
 # Gello
 PRODUCT_PACKAGES += \
     Gello
