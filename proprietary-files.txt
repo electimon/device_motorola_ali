@@ -230,8 +230,6 @@ vendor/bin/xtra-daemon|bdb8bb37d6602b904b6b13f0facd316f3f9340d2d
 vendor/bin/xtwifi-client|310655288c4747d5d51c90ce8522548a57399f4d2
 vendor/bin/xtwifi-inet-agent|0bdae8b470ac3a3d8f09934e84bd923eaa4fd5abb
 vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc|8e0b0596ad13b8d653e6f5415c41d8a53bb12b73a
-vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml|d8d7eafd68db9bbe7ec7a5c4d547f026869766081
-vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml|9b2f6691d6cd224bcb9ab9a0d57adfb9e52f1b53e
 vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so|1ca210b9aa9a545c7d72c53611c0ae1a46b9f530c
 vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so|42b198999e2935fb146dc2700ad9f76e4f940404a
 vendor/lib64/libbatching.so|5bb055f03c7c6ac9b653a31a6cdec12c9ac2648dd
